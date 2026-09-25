@@ -1,0 +1,4 @@
+Hola, soy un archivo de ejemplo.
+Tengo varias líneas para que practiques con cat y less.
+Esta es la tercera línea.
+Y esta es la última.

@@ -1,0 +1,71 @@
+# Módulo 2 · Árbol del sistema y tipos de archivos.
+id: fs-009
+module: 2
+kind: quiz
+format: multiple_choice
+difficulty: 1
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_1/03_sistemas_archivos.html#Árbol-del-sistema
+question: |
+  Instalaste un servidor web y quieres cambiar su configuración. ¿En qué
+  directorio la buscas?
+options: ["/etc", "/var", "/boot", "/tmp"]
+answer: "/etc"
+explanation: |
+  /etc guarda la configuración del sistema y de las aplicaciones instaladas.
+time_limit_sec: 20
+hints:
+  - "Piensa en la palabra «configuración»."
+---
+id: fs-010
+module: 2
+kind: quiz
+format: multiple_choice
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_1/03_sistemas_archivos.html#Árbol-del-sistema
+question: |
+  Regresas de vacaciones y quieres saber si alguien intentó entrar a tu
+  computadora. ¿Dónde buscas los registros (logs)?
+options: ["/var", "/etc", "/home", "/bin"]
+answer: "/var"
+explanation: |
+  /var guarda datos que cambian con el tiempo, como los registros del sistema
+  en /var/log.
+time_limit_sec: 25
+hints:
+  - "Los logs son datos que varían todo el tiempo."
+---
+id: fs-011
+module: 2
+kind: quiz
+format: multiple_choice
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_1/03_sistemas_archivos.html#Árbol-del-sistema
+question: |
+  Quieres ver qué discos reconoce el sistema. ¿En qué directorio aparecen como
+  archivos?
+options: ["/dev", "/mnt", "/proc", "/lib"]
+answer: "/dev"
+explanation: |
+  /dev tiene archivos especiales que representan dispositivos: discos,
+  particiones, terminales... Un disco suele verse como /dev/sda o /dev/nvme0n1.
+time_limit_sec: 25
+hints:
+  - "Viene de «devices»."
+---
+id: fs-012
+module: 2
+kind: quiz
+format: multiple_choice
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_1/03_sistemas_archivos.html#_tipos_de_archivos
+question: |
+  En la salida de «ls -l», el primer carácter de cada línea indica el tipo de
+  archivo. ¿Qué significa una d?
+options: ["Un directorio", "Un dispositivo", "Un archivo borrado", "Un enlace duro"]
+answer: "Un directorio"
+explanation: |
+  Algunos tipos comunes: - archivo ordinario, d directorio, l enlace simbólico,
+  b y c dispositivos de bloque y de caracteres.
+time_limit_sec: 25
+hints:
+  - "Los archivos normales llevan un guion."

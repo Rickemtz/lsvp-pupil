@@ -1,0 +1,167 @@
+# Módulo 5 · Comandos de los gestores de paquetes. Son ejercicios pattern: no se instala nada.
+id: inst-p01
+module: 5
+kind: practice
+difficulty: 1
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_2/05_instalacion_de_paquetes.html#comandos-de-uso-diario
+instructions: |
+  Estás en Ubuntu. Instala el paquete cowsay.
+checks:
+  - type: pattern
+    accepted:
+      - '(sudo )?apt(-get)? install( -y)? cowsay( -y)?'
+solution: "sudo apt install cowsay"
+time_limit_sec: 45
+hints:
+  - "En Ubuntu el gestor es apt; instalar es install."
+  - "Para instalar hace falta sudo."
+---
+id: inst-p02
+module: 5
+kind: practice
+difficulty: 1
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_2/05_instalacion_de_paquetes.html#comandos-de-uso-diario
+instructions: |
+  Estás en Fedora. Instala el paquete fortune-mod.
+checks:
+  - type: pattern
+    accepted:
+      - '(sudo )?dnf install( -y)? fortune-mod( -y)?'
+solution: "sudo dnf install fortune-mod"
+time_limit_sec: 45
+hints:
+  - "En Fedora el gestor es dnf."
+---
+id: inst-p03
+module: 5
+kind: practice
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_2/05_instalacion_de_paquetes.html#comandos-de-uso-diario
+instructions: |
+  Estás en Arch Linux. Busca en los repositorios el juego moon-buggy.
+checks:
+  - type: pattern
+    accepted:
+      - '(sudo )?pacman -Ss moon-buggy'
+solution: "pacman -Ss moon-buggy"
+explanation: |
+  -S sincroniza con los repositorios y s busca. Buscar no necesita sudo.
+time_limit_sec: 60
+hints:
+  - "pacman usa opciones de letras: S de sync y s de search."
+---
+id: inst-p04
+module: 5
+kind: practice
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_2/05_instalacion_de_paquetes.html#comandos-de-uso-diario
+instructions: |
+  Estás en Arch Linux. Instala el juego moon-buggy.
+checks:
+  - type: pattern
+    accepted:
+      - '(sudo )?pacman -S( --noconfirm)? moon-buggy'
+solution: "sudo pacman -S moon-buggy"
+time_limit_sec: 45
+hints:
+  - "Para instalar, pacman usa solo -S."
+---
+id: inst-p05
+module: 5
+kind: practice
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_2/05_instalacion_de_paquetes.html#formatos-y-comandos-básicos
+instructions: |
+  Descargaste el archivo paquete.deb en el directorio actual. Instálalo con la
+  herramienta de bajo nivel de Debian.
+checks:
+  - type: pattern
+    accepted:
+      - '(sudo )?dpkg (-i|--install) (\./)?paquete\.deb'
+solution: "sudo dpkg -i paquete.deb"
+explanation: |
+  dpkg instala un .deb local, pero no descarga dependencias. Si falta alguna,
+  «sudo apt install ./paquete.deb» la resuelve.
+time_limit_sec: 60
+hints:
+  - "La herramienta es dpkg; la opción, --install o su forma corta."
+---
+id: inst-p06
+module: 5
+kind: practice
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_2/05_instalacion_de_paquetes.html#formatos-y-comandos-básicos
+instructions: |
+  En un sistema Fedora, lista todos los paquetes .rpm instalados.
+checks:
+  - type: pattern
+    accepted:
+      - 'rpm -qa'
+      - 'rpm --query --all'
+solution: "rpm -qa"
+explanation: |
+  q es de «query» (consultar) y a de «all» (todos). En Debian el equivalente es dpkg -l.
+time_limit_sec: 45
+hints:
+  - "Consulta (q) todos (a)."
+---
+id: inst-p07
+module: 5
+kind: practice
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_2/05_instalacion_de_paquetes.html#comandos-de-uso-diario
+instructions: |
+  Estás en Ubuntu. Actualiza la lista de paquetes y después instala las versiones
+  nuevas de todo, en una sola línea.
+checks:
+  - type: pattern
+    accepted:
+      - '(sudo )?apt(-get)? update && (sudo )?apt(-get)? upgrade( -y)?'
+      - '(sudo )?apt(-get)? update; (sudo )?apt(-get)? upgrade( -y)?'
+solution: "sudo apt update && sudo apt upgrade"
+explanation: |
+  && ejecuta el segundo comando solo si el primero terminó bien.
+time_limit_sec: 60
+hints:
+  - "Primero update, luego upgrade."
+  - "Une los dos comandos con &&."
+---
+id: inst-p08
+module: 5
+kind: practice
+difficulty: 1
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_2/05_instalacion_de_paquetes.html#comandos-de-uso-diario
+instructions: |
+  Estás en Ubuntu. Desinstala el paquete cowsay.
+checks:
+  - type: pattern
+    accepted:
+      - '(sudo )?apt(-get)? (remove|purge)( -y)? cowsay( -y)?'
+solution: "sudo apt remove cowsay"
+explanation: |
+  remove quita el programa; purge además borra su configuración.
+time_limit_sec: 45
+hints:
+  - "Lo contrario de install."
+---
+id: inst-p09
+module: 5
+kind: practice
+difficulty: 3
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_2/05_instalacion_de_paquetes.html#herramientas-del-proyecto-gnu
+instructions: |
+  Estás en el directorio del código fuente de un programa. En una sola línea,
+  prepara la compilación para tu sistema y compila (todavía sin instalar).
+checks:
+  - type: pattern
+    accepted:
+      - '\./configure && make( -j ?[0-9]+)?'
+      - '\./configure; make( -j ?[0-9]+)?'
+solution: "./configure && make"
+explanation: |
+  Después vendría «sudo make install» para copiar el programa a su lugar en el
+  sistema.
+time_limit_sec: 60
+hints:
+  - "configure es un script del directorio actual: se ejecuta con ./"
+  - "Luego make, unidos con &&."

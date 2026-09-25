@@ -1,0 +1,60 @@
+# Módulo 7 · STDIN, STDOUT, STDERR y los operadores de redirección.
+id: red-001
+module: 7
+kind: quiz
+format: multi_select
+difficulty: 1
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_3/07_filtrado.html#_ahora_seamos_más_técnicos
+question: |
+  ¿Cuáles son los tres canales de comunicación que tiene todo proceso?
+  Marca todos.
+options: ["Entrada estándar (STDIN)", "Salida estándar (STDOUT)", "Error estándar (STDERR)", "Red estándar (STDNET)"]
+answer: ["Entrada estándar (STDIN)", "Salida estándar (STDOUT)", "Error estándar (STDERR)"]
+explanation: |
+  STDIN (descriptor 0) es por donde lee, STDOUT (1) por donde escribe sus
+  resultados y STDERR (2) por donde escribe los mensajes de error.
+time_limit_sec: 30
+hints:
+  - "Una de las opciones es inventada."
+---
+id: red-002
+module: 7
+kind: quiz
+format: multiple_choice
+difficulty: 1
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_3/07_filtrado.html#_ahora_seamos_más_técnicos
+question: |
+  notas.txt ya tiene texto. ¿Qué pasa con ese texto al ejecutar
+  «echo hola > notas.txt»?
+options:
+  - "Se borra: notas.txt queda solo con «hola»"
+  - "Se conserva y «hola» se agrega al final"
+  - "Se conserva y «hola» se agrega al inicio"
+  - "El comando falla porque el archivo ya existe"
+answer: "Se borra: notas.txt queda solo con «hola»"
+explanation: |
+  > sustituye el contenido. Para agregar al final sin borrar se usa >>.
+time_limit_sec: 25
+hints:
+  - "Un solo > sobrescribe."
+---
+id: red-003
+module: 7
+kind: quiz
+format: multiple_choice
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_3/07_filtrado.html#_ahora_seamos_más_técnicos
+question: |
+  ¿Qué guarda «ls /no/existe 2> errores.txt» en errores.txt?
+options:
+  - "El mensaje de error de ls"
+  - "La lista de archivos"
+  - "Las dos cosas"
+  - "Nada, porque el 2 es el número de líneas a guardar"
+answer: "El mensaje de error de ls"
+explanation: |
+  2 es el descriptor de STDERR. 2> redirige solo los errores; la salida normal
+  sigue saliendo en pantalla.
+time_limit_sec: 25
+hints:
+  - "¿Qué canal tiene el número 2?"

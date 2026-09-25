@@ -1,0 +1,3 @@
+Este es un archivo de práctica.
+Puedes leerlo, copiarlo, moverlo o borrarlo sin miedo:
+cada ejercicio empieza con una copia nueva.

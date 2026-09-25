@@ -1,0 +1,233 @@
+# Módulo 7 · Práctica de redirección y pipes en red_pipes (sigue la práctica del curso).
+id: red-p01
+module: 7
+kind: practice
+difficulty: 1
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_3/07_filtrado.html#_práctica
+fixture: taller2
+start_dir: taller2/dia3/redireccionYPipes/red_pipes
+instructions: |
+  Copia el contenido de poesia_artificial a poesia_redireccionada usando cat y
+  una redirección (no uses cp).
+checks:
+  - type: fs
+    line_count:
+      taller2/dia3/redireccionYPipes/red_pipes/poesia_redireccionada: 14
+    content_contains:
+      taller2/dia3/redireccionYPipes/red_pipes/poesia_redireccionada: "En la terminal oscura parpadea un cursor"
+solution: "cat poesia_artificial > poesia_redireccionada"
+time_limit_sec: 60
+hints:
+  - "cat muestra el contenido; > lo manda a un archivo."
+---
+id: red-p02
+module: 7
+kind: practice
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_3/07_filtrado.html#_práctica
+fixture: taller2
+start_dir: taller2/dia3/redireccionYPipes/red_pipes
+instructions: |
+  Usa ls con un directorio que no existe (llámalo noexiste) y guarda el mensaje
+  de error en el archivo error.txt.
+checks:
+  - type: fs
+    content_contains:
+      taller2/dia3/redireccionYPipes/red_pipes/error.txt: "noexiste"
+solution: "ls noexiste 2> error.txt"
+explanation: |
+  Con > a secas, error.txt quedaría vacío: el mensaje va por STDERR, no por STDOUT.
+time_limit_sec: 60
+hints:
+  - "El error sale por el canal 2."
+---
+id: red-p03
+module: 7
+kind: practice
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_3/07_filtrado.html#_práctica
+fixture: taller2
+start_dir: taller2/dia3/redireccionYPipes/red_pipes
+setup:
+  - cat poesia_artificial > poesia_redireccionada
+instructions: |
+  Agrega la línea «Esto es una copia de red_pipes/poesia_artificial» al final de
+  poesia_redireccionada usando echo, sin borrar lo que ya tiene.
+checks:
+  - type: fs
+    line_count:
+      taller2/dia3/redireccionYPipes/red_pipes/poesia_redireccionada: 15
+    content_contains:
+      taller2/dia3/redireccionYPipes/red_pipes/poesia_redireccionada: "Esto es una copia de red_pipes/poesia_artificial\n"
+solution: 'echo "Esto es una copia de red_pipes/poesia_artificial" >> poesia_redireccionada'
+explanation: |
+  >> escribe al final. Con > se habría perdido el poema.
+time_limit_sec: 75
+hints:
+  - "Para agregar al final, el operador es doble."
+---
+id: red-p04
+module: 7
+kind: practice
+difficulty: 1
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_3/07_filtrado.html#_ahora_seamos_más_técnicos
+fixture: taller2
+start_dir: taller2/dia3/redireccionYPipes/red_pipes
+instructions: |
+  Guarda en lista.txt la lista de archivos de este directorio.
+checks:
+  - type: fs
+    content_contains:
+      taller2/dia3/redireccionYPipes/red_pipes/lista.txt: "poesia_artificial"
+solution: "ls > lista.txt"
+explanation: |
+  Fíjate que lista.txt aparece dentro de sí misma: la shell crea el archivo antes
+  de ejecutar ls.
+time_limit_sec: 45
+hints:
+  - "ls y el operador >"
+---
+id: red-p05
+module: 7
+kind: practice
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_3/07_filtrado.html#_ahora_seamos_más_técnicos
+fixture: taller2
+start_dir: taller2/dia3/redireccionYPipes/red_pipes
+instructions: |
+  Muestra cuántas líneas tiene poesia_artificial usando wc -l, pero haz que wc
+  lea el archivo desde su entrada estándar con <, para que solo muestre el
+  número (sin el nombre del archivo).
+checks:
+  - type: output
+    mode: same_as_solution
+solution: "wc -l < poesia_artificial"
+explanation: |
+  Con «wc -l poesia_artificial», wc conoce el nombre y lo imprime. Con <, la
+  shell le pasa el contenido por STDIN y wc no sabe de qué archivo viene.
+time_limit_sec: 60
+hints:
+  - "comando < archivo"
+---
+id: red-p06
+module: 7
+kind: practice
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_3/07_filtrado.html#_ahora_seamos_más_técnicos
+fixture: taller2
+start_dir: taller2/dia3/redireccionYPipes/red_pipes
+setup:
+  - ls noexiste 2> errores.txt || true
+instructions: |
+  errores.txt ya tiene un mensaje de error. Agrega al final el error de intentar
+  listar el directorio fantasma, sin borrar el mensaje anterior.
+checks:
+  - type: fs
+    line_count:
+      taller2/dia3/redireccionYPipes/red_pipes/errores.txt: 2
+    content_contains:
+      taller2/dia3/redireccionYPipes/red_pipes/errores.txt: "fantasma"
+solution: "ls fantasma 2>> errores.txt"
+time_limit_sec: 60
+hints:
+  - "Errores (2) y agregar al final (>>)."
+---
+id: red-p07
+module: 7
+kind: practice
+difficulty: 3
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_3/07_filtrado.html#_ahora_seamos_más_técnicos
+fixture: taller2
+start_dir: taller2/dia3/redireccionYPipes/red_pipes
+instructions: |
+  Con un solo comando, lista poesia_artificial y noexiste con ls, guardando la
+  salida normal en salida.txt y el error en error.txt.
+checks:
+  - type: fs
+    content_contains:
+      taller2/dia3/redireccionYPipes/red_pipes/salida.txt: "poesia_artificial"
+      taller2/dia3/redireccionYPipes/red_pipes/error.txt: "noexiste"
+solution: "ls poesia_artificial noexiste > salida.txt 2> error.txt"
+time_limit_sec: 75
+hints:
+  - "Puedes usar > y 2> en el mismo comando."
+---
+id: red-p08
+module: 7
+kind: practice
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_3/07_filtrado.html#_ahora_seamos_más_técnicos
+fixture: taller2
+start_dir: taller2/dia3/redireccionYPipes/red_pipes
+instructions: |
+  Guarda en conteo.txt solo el número de líneas de datos.csv (sin el nombre del
+  archivo).
+checks:
+  - type: fs
+    content_equals:
+      taller2/dia3/redireccionYPipes/red_pipes/conteo.txt: "801\n"
+solution: "wc -l < datos.csv > conteo.txt"
+explanation: |
+  Se pueden combinar < y > en el mismo comando.
+time_limit_sec: 75
+hints:
+  - "Recuerda el truco de < para que wc no imprima el nombre."
+  - "Luego manda el resultado a conteo.txt con >."
+---
+id: red-p09
+module: 7
+kind: practice
+difficulty: 1
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_3/07_filtrado.html#_volvamos_a_ser_un_poco_más_técnicos
+fixture: taller2
+start_dir: taller2/dia3/redireccionYPipes/red_pipes
+instructions: |
+  Muestra solo las primeras 5 líneas de /proc/cpuinfo pasando la salida de cat
+  a head con un pipe.
+checks:
+  - type: output
+    mode: same_as_solution
+solution: "cat /proc/cpuinfo | head -n 5"
+explanation: |
+  El pipe (|) conecta la salida estándar de cat con la entrada estándar de head.
+time_limit_sec: 60
+hints:
+  - "comando1 | comando2"
+  - "head -n 5 muestra 5 líneas."
+---
+id: red-p10
+module: 7
+kind: practice
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_3/07_filtrado.html#_volvamos_a_ser_un_poco_más_técnicos
+fixture: taller2
+start_dir: taller2/dia3/redireccionYPipes/red_pipes
+instructions: |
+  ¿Cuántos programas hay en /usr/bin? Cuéntalos uniendo ls y wc con un pipe.
+checks:
+  - type: output
+    mode: same_as_solution
+solution: "ls /usr/bin | wc -l"
+explanation: |
+  Cuando ls escribe a un pipe pone un nombre por línea, así que wc -l cuenta
+  archivos.
+time_limit_sec: 60
+hints:
+  - "wc -l cuenta líneas."
+---
+id: red-p11
+module: 7
+kind: practice
+difficulty: 3
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_3/07_filtrado.html#_volvamos_a_ser_un_poco_más_técnicos
+fixture: taller2
+start_dir: taller2/dia3/redireccionYPipes/red_pipes
+instructions: |
+  Muestra las últimas 3 líneas de poesia_artificial ordenadas alfabéticamente.
+checks:
+  - type: output
+    mode: same_as_solution
+solution: "tail -n 3 poesia_artificial | sort"
+time_limit_sec: 75
+hints:
+  - "tail saca las últimas líneas; sort las ordena."

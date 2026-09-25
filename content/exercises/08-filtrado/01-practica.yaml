@@ -1,0 +1,272 @@
+# Módulo 8 · Filtrado sobre datos.csv. Todo se compara con la salida de la solución.
+id: fil-p01
+module: 8
+kind: practice
+difficulty: 1
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_3/07_filtrado.html#_obtengamos_un_poco_de_información_de_los_archivos
+fixture: taller2
+start_dir: taller2/dia3/redireccionYPipes/red_pipes
+instructions: |
+  Muestra el total de líneas, palabras y caracteres de datos.csv.
+checks:
+  - type: output
+    mode: same_as_solution
+solution: "wc datos.csv"
+explanation: |
+  Sin opciones, wc muestra las tres cuentas: líneas, palabras y bytes.
+time_limit_sec: 45
+hints:
+  - "wc cuenta líneas (-l), palabras (-w) y caracteres (-c)."
+---
+id: fil-p02
+module: 8
+kind: practice
+difficulty: 1
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_3/07_filtrado.html#_prácticas
+fixture: taller2
+start_dir: taller2/dia3/redireccionYPipes/red_pipes
+instructions: |
+  Muestra solo las líneas de datos.csv que contienen la palabra Fuego.
+checks:
+  - type: output
+    mode: same_as_solution
+solution: "grep Fuego datos.csv"
+explanation: |
+  grep deja pasar solo las líneas donde encuentra el patrón.
+time_limit_sec: 45
+hints:
+  - "grep patrón archivo"
+---
+id: fil-p03
+module: 8
+kind: practice
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_3/07_filtrado.html#_prácticas
+fixture: taller2
+start_dir: taller2/dia3/redireccionYPipes/red_pipes
+instructions: |
+  ¿Cuántas líneas de datos.csv contienen «agua», sin importar si está en mayúsculas o minúsculas? Muestra solo el número.
+checks:
+  - type: output
+    mode: same_as_solution
+solution: "grep -i agua datos.csv | wc -l"
+explanation: |
+  Con -i, grep encuentra Agua (el tipo) y también «agua» en minúsculas dentro de algunos nombres. grep -ic agua datos.csv da el mismo número.
+time_limit_sec: 75
+hints:
+  - "grep tiene una opción para ignorar mayúsculas."
+  - "Cuenta las líneas con wc -l."
+---
+id: fil-p04
+module: 8
+kind: practice
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_3/07_filtrado.html#_cómo_filtrar_información
+fixture: taller2
+start_dir: taller2/dia3/redireccionYPipes/red_pipes
+instructions: |
+  Cuenta cuántas líneas de datos.csv NO contienen la palabra Verdadero. Muestra solo el número.
+checks:
+  - type: output
+    mode: same_as_solution
+solution: "grep -v Verdadero datos.csv | wc -l"
+explanation: |
+  -v invierte el filtro. Ojo: el encabezado también cuenta, porque no dice Verdadero.
+time_limit_sec: 75
+hints:
+  - "grep tiene una opción para invertir la búsqueda."
+---
+id: fil-p05
+module: 8
+kind: practice
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_3/07_filtrado.html#_práctica_2
+fixture: taller2
+start_dir: taller2/dia3/redireccionYPipes/red_pipes
+instructions: |
+  Muestra las líneas 5 a 10 de datos.csv (contando el encabezado como línea 1).
+checks:
+  - type: output
+    mode: same_as_solution
+solution: "head -n 10 datos.csv | tail -n 6"
+explanation: |
+  head se queda con las primeras 10; de ellas, tail toma las últimas 6: de la 5 a la 10.
+time_limit_sec: 90
+hints:
+  - "Primero corta con head hasta la línea 10."
+  - "Luego tail con las que te sobran."
+---
+id: fil-p06
+module: 8
+kind: practice
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_3/07_filtrado.html#_práctica_2
+fixture: taller2
+start_dir: taller2/dia3/redireccionYPipes/red_pipes
+instructions: |
+  Muestra la penúltima línea de datos.csv.
+checks:
+  - type: output
+    mode: same_as_solution
+solution: "tail -n 2 datos.csv | head -n 1"
+time_limit_sec: 75
+hints:
+  - "Toma las dos últimas líneas y quédate con la primera."
+---
+id: fil-p07
+module: 8
+kind: practice
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_3/07_filtrado.html#_práctica_3
+fixture: taller2
+start_dir: taller2/dia3/redireccionYPipes/red_pipes
+instructions: |
+  Muestra el segundo y el sexto campo (nombre y hp) de las primeras 10 líneas de datos.csv.
+checks:
+  - type: output
+    mode: same_as_solution
+solution: "cut -d \",\" -f 2,6 datos.csv | head"
+explanation: |
+  Primero hay que saber que el separador es la coma (lo ves con head -n 1 datos.csv).
+time_limit_sec: 90
+hints:
+  - "cut -d separador -f campos"
+  - "head sin opciones muestra 10 líneas."
+---
+id: fil-p08
+module: 8
+kind: practice
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_3/07_filtrado.html#_práctica_4
+fixture: taller2
+start_dir: taller2/dia3/redireccionYPipes/red_pipes
+instructions: |
+  Ordena las líneas de datos.csv alfabéticamente por el nombre (segundo campo).
+checks:
+  - type: output
+    mode: same_as_solution
+solution: "sort -t ',' -k 2 datos.csv"
+explanation: |
+  -t indica el separador de campos y -k el campo por el que se ordena.
+time_limit_sec: 75
+hints:
+  - "sort -t separador -k campo"
+---
+id: fil-p09
+module: 8
+kind: practice
+difficulty: 3
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_3/07_filtrado.html#_práctica_4
+fixture: taller2
+start_dir: taller2/dia3/redireccionYPipes/red_pipes
+instructions: |
+  Muestra los 5 valores más altos de la columna total (quinto campo), de mayor a menor. Solo los números.
+checks:
+  - type: output
+    mode: same_as_solution
+solution: "cut -d ',' -f 5 datos.csv | sort -n -r | head -n 5"
+explanation: |
+  Sin -n, sort compara texto y «99» quedaría después de «600». -r invierte el orden.
+time_limit_sec: 120
+hints:
+  - "Extrae la columna con cut."
+  - "sort -n ordena como números y -r al revés."
+---
+id: fil-p10
+module: 8
+kind: practice
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_3/07_filtrado.html#_ejemplos_prácticos
+fixture: taller2
+start_dir: taller2/dia3/redireccionYPipes/red_pipes
+instructions: |
+  ¿Cuántas criaturas legendarias hay en datos.csv? Muestra solo el número.
+checks:
+  - type: output
+    mode: same_as_solution
+solution: "grep Verdadero datos.csv | wc -l"
+explanation: |
+  La columna legendario vale Verdadero o Falso. grep -c Verdadero datos.csv también funciona.
+time_limit_sec: 75
+hints:
+  - "Mira el encabezado: ¿qué valor tiene la columna legendario?"
+---
+id: fil-p11
+module: 8
+kind: practice
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_3/07_filtrado.html#_ejemplos_prácticos
+fixture: taller2
+start_dir: taller2/dia3/redireccionYPipes/red_pipes
+instructions: |
+  ¿Cuántos registros tiene datos.csv, sin contar el encabezado? Muestra solo el número.
+checks:
+  - type: output
+    mode: same_as_solution
+solution: "tail -n +2 datos.csv | wc -l"
+explanation: |
+  tail -n +2 empieza en la línea 2, es decir, se salta el encabezado.
+time_limit_sec: 90
+hints:
+  - "wc -l cuenta también el encabezado."
+  - "tail -n +2 muestra desde la segunda línea."
+---
+id: fil-p12
+module: 8
+kind: practice
+difficulty: 1
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_3/07_filtrado.html#_ejemplos_prácticos
+fixture: taller2
+start_dir: taller2/dia3/redireccionYPipes/red_pipes
+instructions: |
+  Muestra únicamente las columnas del nombre y la generación de datos.csv.
+checks:
+  - type: output
+    mode: same_as_solution
+solution: "cut -d ',' -f 2,12 datos.csv"
+explanation: |
+  La generación es el campo 12; cuéntalos en el encabezado.
+time_limit_sec: 75
+hints:
+  - "Busca en el encabezado en qué posición está generacion."
+---
+id: fil-p13
+module: 8
+kind: practice
+difficulty: 3
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_3/07_filtrado.html#_ejemplos_prácticos
+fixture: taller2
+start_dir: taller2/dia3/redireccionYPipes/red_pipes
+instructions: |
+  ¿Qué tipo (columna tipo1) aparece más veces? Usa uniq -c para mostrar la cuenta y el tipo, en una sola línea.
+checks:
+  - type: output
+    mode: same_as_solution
+solution: "tail -n +2 datos.csv | cut -d ',' -f 3 | sort | uniq -c | sort -n -r | head -n 1"
+explanation: |
+  uniq solo junta líneas iguales consecutivas: por eso hay que ordenar antes. Luego se ordena por la cuenta.
+time_limit_sec: 150
+hints:
+  - "Extrae la columna 3 y ordénala."
+  - "uniq -c cuenta repeticiones."
+  - "Ordena por número al revés y quédate con la primera línea."
+---
+id: fil-p14
+module: 8
+kind: practice
+difficulty: 3
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_3/07_filtrado.html#uniq
+fixture: taller2
+start_dir: taller2/dia3/redireccionYPipes/red_pipes
+instructions: |
+  Muestra todos los tipos de la columna tipo1, sin repetir y sin incluir el encabezado.
+checks:
+  - type: output
+    mode: same_as_solution
+solution: "tail -n +2 datos.csv | cut -d ',' -f 3 | sort | uniq"
+explanation: |
+  sort -u hace lo mismo que sort | uniq.
+time_limit_sec: 120
+hints:
+  - "Recuerda saltarte el encabezado."
+  - "uniq necesita la entrada ordenada."

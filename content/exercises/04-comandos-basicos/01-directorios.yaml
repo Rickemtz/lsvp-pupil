@@ -1,0 +1,98 @@
+# Módulo 4 · ls, mkdir y cd.
+id: basicos-001
+module: 4
+kind: practice
+difficulty: 1
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_2/04_comandos_basicos.html#cómo-ver-el-contenido-de-los-directorios-ls
+fixture: taller
+start_dir: taller
+instructions: |
+  Muestra el contenido de taller en formato de lista larga (con permisos,
+  tamaño y fecha de cada archivo).
+checks:
+  - type: output
+    mode: regex
+    expected: '(?m)^d\S+\s.*\sdia-1$'
+solution: "ls -l"
+explanation: |
+  La primera columna de «ls -l» muestra el tipo y los permisos: una d al inicio
+  indica un directorio.
+time_limit_sec: 45
+hints:
+  - "La opción es la letra ele, de «long»."
+---
+id: basicos-002
+module: 4
+kind: practice
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_2/04_comandos_basicos.html#como-crear-un-directorio-mkdir
+fixture: taller
+start_dir: taller
+instructions: |
+  Crea la ruta de directorios proyecto/linux/basico con un solo comando.
+checks:
+  - type: fs
+    is_dir: [taller/proyecto/linux/basico]
+solution: "mkdir -p proyecto/linux/basico"
+explanation: |
+  Sin -p, mkdir se queja de que proyecto no existe. Con -p crea también los
+  directorios intermedios.
+time_limit_sec: 60
+hints:
+  - "mkdir necesita una opción para crear los directorios intermedios."
+  - "La opción es -p (de «parents»)."
+---
+id: basicos-003
+module: 4
+kind: practice
+difficulty: 1
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_2/04_comandos_basicos.html#cómo-moverse-entre-los-directorios-cd
+fixture: taller
+start_dir: taller/proyecto
+setup:
+  - mkdir -p linux/basico
+instructions: |
+  Estás en proyecto. Muévete a linux/basico con un solo comando.
+checks:
+  - type: cwd
+    path: taller/proyecto/linux/basico
+solution: "cd linux/basico"
+time_limit_sec: 45
+hints:
+  - "cd acepta una ruta con varios niveles."
+---
+id: basicos-004
+module: 4
+kind: practice
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_2/04_comandos_basicos.html#cómo-moverse-entre-los-directorios-cd
+fixture: taller
+start_dir: taller/proyecto/linux/basico
+instructions: |
+  Estás en basico. Regresa a proyecto, que está dos niveles arriba, con un solo
+  comando.
+checks:
+  - type: cwd
+    path: taller/proyecto
+solution: "cd ../.."
+time_limit_sec: 45
+hints:
+  - ".. sube un nivel. ¿Y para subir dos?"
+---
+id: basicos-005
+module: 4
+kind: practice
+difficulty: 1
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_2/04_comandos_basicos.html#como-crear-un-directorio-mkdir
+fixture: taller
+start_dir: taller
+instructions: |
+  Dentro de taller, crea los directorios dir1, dir2, dir3 y dir4 con un solo
+  comando.
+checks:
+  - type: fs
+    is_dir: [taller/dir1, taller/dir2, taller/dir3, taller/dir4]
+solution: "mkdir dir1 dir2 dir3 dir4"
+time_limit_sec: 60
+hints:
+  - "mkdir acepta varios nombres separados por espacios."

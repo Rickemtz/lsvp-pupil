@@ -1,0 +1,16 @@
+Melvil Dewey fue un bibliotecario estadounidense del siglo XIX.
+En 1876 propuso una forma de ordenar los libros por tema usando números.
+La idea es sencilla: el conocimiento se divide en diez grandes clases.
+000 es para obras generales y computación.
+100 es para filosofía y psicología.
+200 es para religión.
+300 es para ciencias sociales.
+400 es para lenguas.
+500 es para ciencias naturales y matemáticas.
+600 es para tecnología y ciencias aplicadas.
+700 es para artes y recreación.
+800 es para literatura.
+900 es para historia y geografía.
+Cada clase se divide en diez, y cada división otra vez en diez.
+Así, un número como 005.43 lleva de lo general a lo particular,
+igual que una ruta como /home/alumno/taller lleva de la raíz a un directorio.

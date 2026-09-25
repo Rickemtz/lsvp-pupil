@@ -1,0 +1,96 @@
+# Módulo 3 · Comandos de SSH. Son ejercicios pattern: el comando no se ejecuta.
+id: ssh-p01
+module: 3
+kind: practice
+difficulty: 1
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_1/02_ssh.html#para-usar-openssh
+instructions: |
+  Conéctate por SSH al servidor cluster.lsvp.example con el usuario alumno.
+checks:
+  - type: pattern
+    accepted:
+      - 'ssh alumno@cluster\.lsvp\.example'
+      - 'ssh -l alumno cluster\.lsvp\.example'
+      - 'ssh cluster\.lsvp\.example -l alumno'
+solution: "ssh alumno@cluster.lsvp.example"
+time_limit_sec: 45
+hints:
+  - "ssh USUARIO@DIRECCIÓN"
+---
+id: ssh-p02
+module: 3
+kind: practice
+difficulty: 1
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_1/02_ssh.html#para-usar-openssh
+instructions: |
+  El servidor del laboratorio tiene la IP 192.0.2.10. Conéctate con el usuario
+  maria.
+checks:
+  - type: pattern
+    accepted:
+      - 'ssh maria@192\.0\.2\.10'
+      - 'ssh -l maria 192\.0\.2\.10'
+solution: "ssh maria@192.0.2.10"
+explanation: |
+  En lugar del nombre del servidor puedes usar su dirección IP.
+time_limit_sec: 45
+hints:
+  - "La dirección va después de la @, igual que un nombre."
+---
+id: ssh-p03
+module: 3
+kind: practice
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_1/02_ssh.html#para-usar-openssh
+instructions: |
+  El servidor cluster.lsvp.example no usa el puerto de siempre, sino el 2222.
+  Conéctate con el usuario alumno.
+checks:
+  - type: pattern
+    accepted:
+      - 'ssh -p 2222 alumno@cluster\.lsvp\.example'
+      - 'ssh alumno@cluster\.lsvp\.example -p 2222'
+      - 'ssh -p2222 alumno@cluster\.lsvp\.example'
+solution: "ssh -p 2222 alumno@cluster.lsvp.example"
+time_limit_sec: 60
+hints:
+  - "La opción para el puerto es la letra p."
+---
+id: ssh-p04
+module: 3
+kind: practice
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_1/02_ssh.html#cómo-se-logra
+instructions: |
+  Genera un par de llaves SSH (pública y privada) en tu computadora.
+checks:
+  - type: pattern
+    accepted:
+      - 'ssh-keygen( -t (ed25519|rsa|ecdsa))?( -b [0-9]+)?( -C \S.*)?'
+solution: "ssh-keygen -t ed25519"
+explanation: |
+  ssh-keygen crea las dos llaves en ~/.ssh: la privada (id_ed25519) y la
+  pública (id_ed25519.pub). ed25519 es el tipo recomendado hoy.
+time_limit_sec: 60
+hints:
+  - "El comando junta «ssh» con «key» y «gen»."
+---
+id: ssh-p05
+module: 3
+kind: practice
+difficulty: 3
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_1/02_ssh.html#cómo-se-logra
+instructions: |
+  Ya tienes tus llaves. Copia tu llave pública al servidor cluster.lsvp.example
+  (usuario alumno) para poder entrar sin escribir la contraseña.
+checks:
+  - type: pattern
+    accepted:
+      - 'ssh-copy-id( -i ~/\.ssh/id_\w+\.pub)? alumno@cluster\.lsvp\.example'
+solution: "ssh-copy-id alumno@cluster.lsvp.example"
+explanation: |
+  ssh-copy-id agrega tu llave pública al archivo ~/.ssh/authorized_keys del
+  servidor. Desde entonces, tu llave privada te identifica.
+time_limit_sec: 60
+hints:
+  - "Hay un comando hecho justo para copiar la llave: ssh-copy-..."

@@ -1,0 +1,171 @@
+# Módulo 1 · Características de GNU/Linux y su historia.
+id: intro-014
+module: 1
+kind: quiz
+format: true_false
+difficulty: 1
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_1/01_introduccion.html#algunas-características-del-so-gnulinux
+question: |
+  Como el código de GNU/Linux es abierto, cualquiera puede estudiarlo,
+  modificarlo y revisar si tiene fallos de seguridad.
+answer: "verdadero"
+explanation: |
+  Ser de código abierto permite aprender del código fuente, adaptarlo y
+  someterlo al escrutinio de miles de personas.
+time_limit_sec: 20
+hints:
+  - "¿Qué significa «abierto» cuando hablamos de código?"
+---
+id: intro-015
+module: 1
+kind: quiz
+format: multiple_choice
+difficulty: 1
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_1/01_introduccion.html#algunas-características-del-so-gnulinux
+question: |
+  Se dice que GNU/Linux es multiplataforma. ¿Qué significa?
+options:
+  - "Funciona en muchos tipos de equipo: computadoras personales, servidores, teléfonos, sistemas pequeños..."
+  - "Se puede instalar al mismo tiempo que Windows en el mismo disco"
+  - "Permite abrir varias terminales a la vez"
+  - "Tiene varias interfaces gráficas para elegir"
+answer: "Funciona en muchos tipos de equipo: computadoras personales, servidores, teléfonos, sistemas pequeños..."
+explanation: |
+  El kernel Linux corre en arquitecturas muy distintas, desde servidores y
+  supercomputadoras hasta teléfonos y placas pequeñas.
+time_limit_sec: 25
+hints:
+  - "«Plataforma» aquí se refiere al tipo de equipo."
+---
+id: intro-016
+module: 1
+kind: quiz
+format: true_false
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_1/01_introduccion.html#algunas-características-del-so-gnulinux
+question: |
+  Hoy prácticamente todas las supercomputadoras más potentes del mundo usan
+  un sistema operativo basado en Linux.
+answer: "verdadero"
+explanation: |
+  GNU/Linux domina el cómputo científico y de alto rendimiento, y tiene una
+  relación estrecha con universidades y laboratorios como el LSVP.
+time_limit_sec: 20
+hints:
+  - "Recuerda en qué laboratorio nació este curso."
+---
+id: intro-017
+module: 1
+kind: quiz
+format: multiple_choice
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_1/01_introduccion.html#breve-historia-del-so-gnulinux
+question: |
+  ¿Cuál de estos sistemas es el más antiguo?
+options: ["Multics", "Unix", "GNU", "Linux"]
+answer: "Multics"
+explanation: |
+  Orden: Multics (1964), Unix (1969), GNU (1984), Linux (1991) y la
+  combinación GNU/Linux (1992).
+time_limit_sec: 20
+hints:
+  - "Unix se inspiró en él."
+---
+id: intro-018
+module: 1
+kind: quiz
+format: multiple_choice
+difficulty: 3
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_1/01_introduccion.html#breve-historia-del-so-gnulinux
+question: |
+  ¿Dónde se desarrolló Unix a finales de los años 60?
+options:
+  - "En los Laboratorios Bell de AT&T"
+  - "En la Universidad de Helsinki"
+  - "En la Free Software Foundation"
+  - "En Microsoft"
+answer: "En los Laboratorios Bell de AT&T"
+explanation: |
+  Ken Thompson y Dennis Ritchie crearon Unix en los Laboratorios Bell, después
+  de participar en el proyecto Multics.
+time_limit_sec: 25
+hints:
+  - "Era un laboratorio de una compañía telefónica."
+---
+id: intro-019
+module: 1
+kind: quiz
+format: multiple_choice
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_1/01_introduccion.html#breve-historia-del-so-gnulinux
+question: |
+  En 1984 Richard Stallman inició un proyecto para crear un sistema operativo
+  libre, compatible con Unix. ¿Cómo se llama?
+options: ["GNU", "Linux", "Debian", "BSD"]
+answer: "GNU"
+explanation: |
+  El proyecto GNU («GNU's Not Unix») creó el compilador, el shell bash y muchas
+  de las herramientas que usarás en la terminal.
+time_limit_sec: 20
+hints:
+  - "Su nombre es un acrónimo recursivo que niega ser Unix."
+---
+id: intro-020
+module: 1
+kind: quiz
+format: short_answer
+difficulty: 1
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_1/01_introduccion.html#breve-historia-del-so-gnulinux
+question: |
+  ¿Quién empezó a escribir el kernel Linux en 1991, cuando era estudiante en Helsinki?
+answer: "Linus Torvalds"
+accepted: ["Torvalds", "Linus"]
+explanation: |
+  Linus Torvalds publicó la primera versión de Linux en 1991 como un proyecto
+  personal; el nombre viene de su propio nombre.
+time_limit_sec: 30
+hints:
+  - "El kernel lleva una variación de su nombre."
+---
+id: intro-021
+module: 1
+kind: quiz
+format: multiple_choice
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_1/01_introduccion.html#breve-historia-del-so-gnulinux
+question: |
+  ¿Por qué se habla de «GNU/Linux» y no solo de «Linux»?
+options:
+  - "Porque el sistema completo une las herramientas del proyecto GNU con el kernel Linux"
+  - "Porque GNU es la empresa que vende Linux"
+  - "Porque GNU es la versión gráfica de Linux"
+  - "Porque Linux es un programa que corre dentro de GNU Hurd"
+answer: "Porque el sistema completo une las herramientas del proyecto GNU con el kernel Linux"
+explanation: |
+  A GNU le faltaba un kernel terminado y Linux era solo un kernel. Juntos, desde
+  1992, forman un sistema operativo completo y libre.
+time_limit_sec: 25
+hints:
+  - "Cada nombre aporta una parte distinta del sistema."
+---
+id: intro-022
+module: 1
+kind: quiz
+format: multiple_choice
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_1/01_introduccion.html#qué-significa-aprender-a-utilizar-el-so-gnulinux
+question: |
+  ¿Cuál de estas tareas corresponde al uso de GNU/Linux como camino profesional,
+  más allá del uso general?
+options:
+  - "Administrar un cluster de supercómputo"
+  - "Navegar en internet"
+  - "Ver una película"
+  - "Editar un documento de texto"
+answer: "Administrar un cluster de supercómputo"
+explanation: |
+  Además del uso diario, GNU/Linux es la base para administrar centros de
+  datos, clusters de supercómputo e infraestructura en la nube.
+time_limit_sec: 20
+hints:
+  - "Busca la opción que harías en un laboratorio como el LSVP."

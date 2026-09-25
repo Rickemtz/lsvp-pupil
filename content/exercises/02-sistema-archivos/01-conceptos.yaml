@@ -1,0 +1,143 @@
+# Módulo 2 · Conceptos: qué es un sistema de archivos, "todo es un archivo", componentes, árbol único.
+id: fs-001
+module: 2
+kind: quiz
+format: multiple_choice
+difficulty: 1
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_1/03_sistemas_archivos.html#qué-es-un-sistema-de-archivos
+question: |
+  ¿Qué hace un sistema de archivos?
+options:
+  - "Organiza los datos de un disco en una jerarquía de directorios y archivos"
+  - "Ejecuta los programas que el usuario abre"
+  - "Conecta la computadora a internet"
+  - "Muestra las ventanas del escritorio"
+answer: "Organiza los datos de un disco en una jerarquía de directorios y archivos"
+explanation: |
+  Un disco solo guarda bloques de datos. El sistema de archivos los convierte
+  en algo que podemos nombrar y ordenar: directorios y archivos.
+time_limit_sec: 20
+hints:
+  - "Piensa en la palabra «archivo» y en «organizar»."
+---
+id: fs-002
+module: 2
+kind: quiz
+format: true_false
+difficulty: 1
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_1/03_sistemas_archivos.html#todo-es-un-archivo
+question: |
+  En un sistema tipo Unix, dispositivos como discos o terminales también se
+  representan como archivos.
+answer: "verdadero"
+explanation: |
+  «Todo es un archivo»: discos, terminales y hasta información de los procesos
+  aparecen en el sistema de archivos (en /dev, /proc...) y se leen o escriben
+  como flujos de bytes.
+time_limit_sec: 20
+hints:
+  - "Recuerda la frase que resume la filosofía de Unix sobre los archivos."
+---
+id: fs-003
+module: 2
+kind: quiz
+format: multiple_choice
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_1/03_sistemas_archivos.html#componentes-de-un-sistema-de-archivos
+question: |
+  ¿Qué componente de un sistema de archivos decide quién puede leer o modificar
+  cada archivo?
+options: ["El modelo de seguridad (permisos)", "El namespace", "La API", "La implementación"]
+answer: "El modelo de seguridad (permisos)"
+explanation: |
+  El namespace nombra y organiza, la API son las operaciones para manipular
+  archivos, la implementación conecta todo con el hardware, y los permisos
+  sirven para proteger, esconder o compartir.
+time_limit_sec: 25
+hints:
+  - "Proteger, esconder y compartir."
+---
+id: fs-004
+module: 2
+kind: quiz
+format: true_false
+difficulty: 1
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_1/03_sistemas_archivos.html#Árbol-de-archivos
+question: |
+  En Windows cada disco tiene su propia letra (C:, D:...). En Linux, en cambio,
+  todos los archivos cuelgan de un único árbol que empieza en /.
+answer: "verdadero"
+explanation: |
+  Linux mantiene una sola jerarquía. Un disco nuevo no recibe una letra: se
+  monta en algún directorio del árbol, por ejemplo en /mnt.
+time_limit_sec: 20
+hints:
+  - "¿Cuántas raíces tiene el árbol?"
+---
+id: fs-005
+module: 2
+kind: quiz
+format: multiple_choice
+difficulty: 1
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_1/03_sistemas_archivos.html#caracteres-especiales-para-escribir-rutas
+question: |
+  En una ruta, ¿qué representa ..?
+options: ["El directorio padre", "El directorio actual", "El directorio raíz", "El home del usuario"]
+answer: "El directorio padre"
+explanation: |
+  Todo directorio tiene dos entradas especiales: . (él mismo) y .. (su padre).
+  Por eso «cd ..» sube un nivel.
+time_limit_sec: 20
+hints:
+  - "Un punto es «aquí»; dos puntos es un nivel arriba."
+---
+id: fs-006
+module: 2
+kind: quiz
+format: short_answer
+difficulty: 1
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_1/03_sistemas_archivos.html#_ruta_absoluta
+question: |
+  ¿Con qué carácter empieza toda ruta absoluta?
+answer: "/"
+accepted: ["la barra", "barra", "diagonal", "la diagonal", "slash"]
+explanation: |
+  Una ruta absoluta empieza en la raíz, que se escribe /. Por ejemplo:
+  /home/alumno/taller.
+time_limit_sec: 20
+hints:
+  - "Es el mismo carácter que separa los directorios."
+---
+id: fs-007
+module: 2
+kind: quiz
+format: multiple_choice
+difficulty: 1
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_1/03_sistemas_archivos.html#_ruta_relativa
+question: |
+  ¿Cuál de estas rutas es absoluta?
+options: ["/home/alumno/taller", "taller/dia-1", "../taller", "./taller"]
+answer: "/home/alumno/taller"
+explanation: |
+  Solo la que empieza con / es absoluta. Las demás son relativas: dependen del
+  directorio en el que estés.
+time_limit_sec: 20
+hints:
+  - "Busca la que empieza en la raíz."
+---
+id: fs-008
+module: 2
+kind: quiz
+format: true_false
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_1/03_sistemas_archivos.html#reglas
+question: |
+  Si un archivo tiene dos enlaces duros (dos nombres), su contenido se guarda
+  dos veces en el disco.
+answer: "falso"
+explanation: |
+  Un enlace duro es solo otro nombre para los mismos datos. Hay un único
+  contenido con varios nombres; no está duplicado.
+time_limit_sec: 25
+hints:
+  - "Un enlace es un nombre, no una copia."

@@ -1,0 +1,6 @@
+nombre edad ciudad
+Ana 21 Iztapalapa
+Luis 19 Coyoacán
+Marta 23 Tlalpan
+Jorge 20 Iztapalapa
+Sofía 22 Xochimilco

@@ -1,0 +1,171 @@
+# Módulo 4 · touch, cp, mv, rmdir y rm.
+id: basicos-006
+module: 4
+kind: practice
+difficulty: 1
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_2/04_comandos_basicos.html#y-los-archivos-touch
+fixture: taller
+start_dir: taller/dir1
+instructions: |
+  Estás en dir1. Crea dos archivos vacíos, file.txt y documento, con un solo
+  comando.
+checks:
+  - type: fs
+    is_file: [taller/dir1/file.txt, taller/dir1/documento]
+solution: "touch file.txt documento"
+time_limit_sec: 60
+hints:
+  - "touch crea archivos vacíos y acepta varios nombres."
+---
+id: basicos-007
+module: 4
+kind: practice
+difficulty: 1
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_2/04_comandos_basicos.html#crear-una-copia-cp
+fixture: taller
+start_dir: taller/dir1
+setup:
+  - echo 'primera versión' > file.txt
+instructions: |
+  Haz una copia de file.txt llamada file2.txt.
+checks:
+  - type: fs
+    content_equals:
+      taller/dir1/file.txt: "primera versión\n"
+      taller/dir1/file2.txt: "primera versión\n"
+solution: "cp file.txt file2.txt"
+time_limit_sec: 45
+hints:
+  - "cp origen destino"
+---
+id: basicos-008
+module: 4
+kind: practice
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_2/04_comandos_basicos.html#crear-una-copia-cp
+fixture: taller
+start_dir: taller
+setup:
+  - mkdir -p proyecto/linux/basico dir2 && touch proyecto/documento
+instructions: |
+  Copia el directorio proyecto, con todo lo que tiene adentro, dentro de dir2.
+checks:
+  - type: fs
+    is_dir: [taller/dir2/proyecto/linux/basico, taller/proyecto]
+    exists: [taller/dir2/proyecto/documento]
+solution: "cp -r proyecto dir2"
+explanation: |
+  Para copiar un directorio, cp necesita -r (recursivo); sin ella se niega.
+time_limit_sec: 60
+hints:
+  - "Copiar un directorio requiere una opción de cp."
+  - "La opción es -r (recursivo)."
+---
+id: basicos-009
+module: 4
+kind: practice
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_2/04_comandos_basicos.html#cómo-se-puede-mover-un-directorio-o-archivo-mv
+fixture: taller
+start_dir: taller/dir1
+setup:
+  - mkdir -p ../dir3 && touch file.txt
+instructions: |
+  Desde dir1, mueve file.txt al directorio dir3 (que está junto a dir1, dentro
+  de taller).
+checks:
+  - type: fs
+    exists: [taller/dir3/file.txt]
+    absent: [taller/dir1/file.txt]
+solution: "mv file.txt ../dir3"
+time_limit_sec: 60
+hints:
+  - "mv origen destino"
+  - "El directorio padre se escribe .."
+---
+id: basicos-010
+module: 4
+kind: practice
+difficulty: 1
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_2/04_comandos_basicos.html#renombrar-un-directorio-o-archivo-mv
+fixture: taller
+start_dir: taller/dir1
+setup:
+  - touch documento
+instructions: |
+  Cambia el nombre del archivo documento a ejercicio.
+checks:
+  - type: fs
+    exists: [taller/dir1/ejercicio]
+    absent: [taller/dir1/documento]
+solution: "mv documento ejercicio"
+explanation: |
+  Renombrar es mover un archivo a un nombre nuevo en el mismo directorio.
+time_limit_sec: 45
+hints:
+  - "No hay un comando «renombrar»: se usa el mismo que para mover."
+---
+id: basicos-011
+module: 4
+kind: practice
+difficulty: 1
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_2/04_comandos_basicos.html#eliminar-un-directorio-vacío-rmdir
+fixture: taller
+start_dir: taller
+setup:
+  - mkdir dir4
+instructions: |
+  Elimina el directorio dir4, que está vacío.
+checks:
+  - type: fs
+    absent: [taller/dir4]
+solution: "rmdir dir4"
+explanation: |
+  rmdir solo borra directorios vacíos, así que es una forma segura de limpiar.
+time_limit_sec: 45
+hints:
+  - "Hay un comando especial para borrar directorios vacíos."
+---
+id: basicos-012
+module: 4
+kind: practice
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_2/04_comandos_basicos.html#eliminar-archivos-rm
+fixture: taller
+start_dir: taller
+setup:
+  - mkdir -p dir1 && touch dir1/file.txt dir1/file2.txt
+instructions: |
+  Sin salir de taller, borra el archivo file2.txt que está en dir1. No borres
+  file.txt.
+checks:
+  - type: fs
+    absent: [taller/dir1/file2.txt]
+    exists: [taller/dir1/file.txt]
+solution: "rm dir1/file2.txt"
+time_limit_sec: 45
+hints:
+  - "rm acepta rutas relativas."
+---
+id: basicos-013
+module: 4
+kind: practice
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_2/04_comandos_basicos.html#eliminar-archivos-rm
+fixture: taller
+start_dir: taller
+setup:
+  - mkdir -p proyecto/linux/basico && touch proyecto/documento proyecto/linux/notas
+instructions: |
+  Elimina el directorio proyecto con todo su contenido.
+checks:
+  - type: fs
+    absent: [taller/proyecto]
+solution: "rm -r proyecto"
+explanation: |
+  rmdir no sirve porque proyecto no está vacío. rm -r borra de manera
+  recursiva, y no pide confirmación: úsalo con cuidado.
+time_limit_sec: 60
+hints:
+  - "El directorio no está vacío, así que rmdir no alcanza."
+  - "rm con la opción recursiva."

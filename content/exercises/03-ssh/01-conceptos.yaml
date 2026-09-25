@@ -1,0 +1,233 @@
+# Módulo 3 · SSH: para qué sirve, cifrado, fingerprint, llaves.
+id: ssh-001
+module: 3
+kind: quiz
+format: multiple_choice
+difficulty: 1
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_1/02_ssh.html#ssh--secure-shell
+question: |
+  ¿Qué es SSH?
+options:
+  - "Un protocolo de red cifrado para trabajar en otra computadora de forma segura"
+  - "Un intérprete de comandos, como bash o zsh"
+  - "Un programa para compartir la pantalla con otra persona"
+  - "Una distribución de Linux para servidores"
+answer: "Un protocolo de red cifrado para trabajar en otra computadora de forma segura"
+explanation: |
+  SSH (Secure Shell) permite operar una computadora remota a través de una red
+  insegura, como internet, sin que otros puedan leer lo que viaja.
+time_limit_sec: 20
+hints:
+  - "La S de SSH significa «secure»."
+---
+id: ssh-002
+module: 3
+kind: quiz
+format: multiple_choice
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_1/02_ssh.html#ssh--secure-shell
+question: |
+  Antes de SSH se usaban programas como telnet para conectarse a otra máquina.
+  ¿Qué problema tenían?
+options:
+  - "Todo, incluidas las contraseñas, viajaba por la red sin cifrar"
+  - "Solo funcionaban dentro de la misma habitación"
+  - "No permitían escribir comandos"
+  - "Necesitaban una interfaz gráfica"
+answer: "Todo, incluidas las contraseñas, viajaba por la red sin cifrar"
+explanation: |
+  Cualquiera que interceptara el tráfico podía leer las contraseñas. SSH surgió
+  para resolver justamente ese problema de las redes inseguras.
+time_limit_sec: 25
+hints:
+  - "Piensa en alguien espiando la red."
+---
+id: ssh-003
+module: 3
+kind: quiz
+format: multi_select
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_1/02_ssh.html#se-usa-para
+question: |
+  ¿Para qué se usa SSH? Marca todas las que apliquen.
+options:
+  - "Iniciar sesión en una computadora remota"
+  - "Cifrar otros tipos de comunicación entre dos máquinas"
+  - "Hacer más rápida la conexión a internet"
+  - "Saltarse los permisos del servidor"
+answer:
+  - "Iniciar sesión en una computadora remota"
+  - "Cifrar otros tipos de comunicación entre dos máquinas"
+explanation: |
+  Sus dos usos principales son el login remoto y proteger otras comunicaciones
+  (por ejemplo, copiar archivos o hacer túneles). No acelera la red ni da más
+  permisos de los que ya tienes.
+time_limit_sec: 30
+hints:
+  - "Dos opciones hablan de seguridad; las otras dos, de cosas que SSH no hace."
+---
+id: ssh-004
+module: 3
+kind: quiz
+format: multiple_choice
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_1/02_ssh.html#cómo-se-logra
+question: |
+  La primera vez que te conectas a un servidor, ssh muestra su «fingerprint» y
+  pregunta si confías en él. ¿Para qué sirve?
+options:
+  - "Para verificar que el servidor es el que crees y no un impostor"
+  - "Para registrar tu huella digital en el servidor"
+  - "Para elegir la velocidad de la conexión"
+  - "Para crear tu contraseña"
+answer: "Para verificar que el servidor es el que crees y no un impostor"
+explanation: |
+  El fingerprint es un resumen de la llave del servidor. Si lo comparas con el
+  que te dio quien administra el servidor, sabes que hablas con la máquina correcta.
+time_limit_sec: 25
+hints:
+  - "Una huella identifica a quien la deja."
+---
+id: ssh-005
+module: 3
+kind: quiz
+format: true_false
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_1/02_ssh.html#cómo-se-logra
+question: |
+  ssh te avisa que el fingerprint de un servidor al que siempre te conectas
+  cambió. Lo más seguro es aceptarlo y seguir.
+answer: "falso"
+explanation: |
+  Un cambio inesperado puede significar que alguien se hace pasar por el
+  servidor. Antes de aceptar, pregunta a quien lo administra si cambió la llave.
+time_limit_sec: 25
+hints:
+  - "¿Qué pasaría si fuera un impostor?"
+---
+id: ssh-006
+module: 3
+kind: quiz
+format: multiple_choice
+difficulty: 1
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_1/02_ssh.html#cómo-se-logra
+question: |
+  Creaste un par de llaves SSH. ¿Cuál puedes copiar a los servidores y compartir
+  sin problema?
+options: ["La llave pública", "La llave privada", "Las dos", "Ninguna"]
+answer: "La llave pública"
+explanation: |
+  La pública se instala en los servidores; la privada se queda solo contigo y
+  demuestra que eres tú.
+time_limit_sec: 20
+hints:
+  - "Su nombre lo dice."
+---
+id: ssh-007
+module: 3
+kind: quiz
+format: true_false
+difficulty: 1
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_1/02_ssh.html#cómo-se-logra
+question: |
+  La llave privada nunca debe compartirse ni copiarse a otras personas.
+answer: "verdadero"
+explanation: |
+  Quien tenga tu llave privada puede entrar a tus servidores como si fueras tú.
+time_limit_sec: 20
+hints:
+  - "Privada."
+---
+id: ssh-008
+module: 3
+kind: quiz
+format: multiple_choice
+difficulty: 1
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_1/02_ssh.html#cómo-se-logra
+question: |
+  Alguien en la misma red wifi intercepta el tráfico entre tu laptop y el
+  servidor mientras usas SSH. ¿Qué ve?
+options:
+  - "Datos cifrados que no puede leer"
+  - "Todos los comandos que escribes"
+  - "Tu contraseña, pero no los comandos"
+  - "La pantalla del servidor"
+answer: "Datos cifrados que no puede leer"
+explanation: |
+  SSH cifra toda la comunicación: contraseñas, comandos y resultados.
+time_limit_sec: 20
+hints:
+  - "¿Qué hace el cifrado con los datos?"
+---
+id: ssh-009
+module: 3
+kind: quiz
+format: multiple_choice
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_1/02_ssh.html#cómo-lo-uso
+question: |
+  ¿Cuál de estos es un programa gráfico clásico para conectarse por SSH desde
+  Windows?
+options: ["PuTTY", "OpenSSH", "bash", "Konsole"]
+answer: "PuTTY"
+explanation: |
+  PuTTY es un cliente SSH gráfico muy usado en Windows. OpenSSH es el cliente y
+  servidor de línea de comandos que viene en Linux, macOS y en Windows recientes.
+time_limit_sec: 25
+hints:
+  - "Tiene nombre de masilla en inglés."
+---
+id: ssh-010
+module: 3
+kind: quiz
+format: multiple_choice
+difficulty: 1
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_1/02_ssh.html#para-usar-openssh
+question: |
+  En el comando «ssh ana@cluster.lsvp.example», ¿qué es ana?
+options:
+  - "El usuario con el que entras al servidor remoto"
+  - "El nombre del servidor"
+  - "Tu contraseña"
+  - "El nombre de tu computadora"
+answer: "El usuario con el que entras al servidor remoto"
+explanation: |
+  La forma es ssh USUARIO@DIRECCIÓN: antes de la @ va el usuario y después, la
+  dirección del servidor (nombre o IP).
+time_limit_sec: 20
+hints:
+  - "Lo que va antes de la @ es quién entra."
+---
+id: ssh-011
+module: 3
+kind: quiz
+format: short_answer
+difficulty: 1
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_1/02_ssh.html#para-usar-openssh
+question: |
+  Estás conectado por SSH a un servidor. ¿Qué comando escribes para cerrar la
+  sesión y volver a tu computadora?
+answer: "exit"
+accepted: ["logout"]
+explanation: |
+  exit (o logout, o Ctrl-D) termina la shell remota y cierra la conexión.
+time_limit_sec: 25
+hints:
+  - "Es el mismo comando con el que cierras cualquier shell."
+---
+id: ssh-012
+module: 3
+kind: quiz
+format: multiple_choice
+difficulty: 3
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_1/02_ssh.html#para-usar-openssh
+question: |
+  ¿En qué puerto escucha un servidor SSH si nadie lo cambió?
+options: ["22", "80", "443", "8080"]
+answer: "22"
+explanation: |
+  El puerto 22 es el predeterminado. Si un servidor usa otro, se indica con la
+  opción -p, por ejemplo ssh -p 2222 usuario@servidor.
+time_limit_sec: 20
+hints:
+  - "Es un número de dos cifras iguales."

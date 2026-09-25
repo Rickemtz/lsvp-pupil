@@ -1,0 +1,210 @@
+# Módulo 6 · Procesos: PID, PPID, UID, /proc, señales.
+id: proc-001
+module: 6
+kind: quiz
+format: multiple_choice
+difficulty: 1
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_3/06_procesos.html#procesos
+question: |
+  ¿Qué es un proceso?
+options:
+  - "Un programa en ejecución"
+  - "Un archivo ejecutable guardado en el disco"
+  - "Una línea de un script"
+  - "Un usuario del sistema"
+answer: "Un programa en ejecución"
+explanation: |
+  El archivo /usr/bin/sleep es un programa; cada vez que lo ejecutas se crea un
+  proceso, con su memoria, su tiempo de CPU y sus archivos abiertos.
+time_limit_sec: 20
+hints:
+  - "La diferencia entre la receta y el pastel en el horno."
+---
+id: proc-002
+module: 6
+kind: quiz
+format: multiple_choice
+difficulty: 1
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_3/06_procesos.html#pid-id-de-proceso
+question: |
+  ¿Qué es el PID?
+options:
+  - "El número único que el kernel asigna a cada proceso"
+  - "La prioridad del proceso"
+  - "El usuario dueño del proceso"
+  - "El nombre del programa"
+answer: "El número único que el kernel asigna a cada proceso"
+explanation: |
+  Casi todos los comandos que actúan sobre procesos, como kill, necesitan el PID
+  para saber a cuál dirigirse.
+time_limit_sec: 20
+hints:
+  - "Process ID."
+---
+id: proc-003
+module: 6
+kind: quiz
+format: multiple_choice
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_3/06_procesos.html#ppid-id-del-proceso-padre
+question: |
+  Desde bash ejecutas «sleep 60 &». ¿Cuál es el PPID del proceso sleep?
+options:
+  - "El PID del bash que lo lanzó"
+  - "El PID de sleep más uno"
+  - "Siempre 1"
+  - "El UID de tu usuario"
+answer: "El PID del bash que lo lanzó"
+explanation: |
+  El proceso que crea a otro es su padre. El PPID (Parent PID) de sleep es el
+  PID de la shell que lo ejecutó.
+time_limit_sec: 25
+hints:
+  - "La P extra es de «parent»."
+---
+id: proc-004
+module: 6
+kind: quiz
+format: true_false
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_3/06_procesos.html#pid-id-de-proceso
+question: |
+  Los PID se asignan en orden conforme se crean los procesos.
+answer: "verdadero"
+explanation: |
+  El kernel va asignando números crecientes; cuando llega al máximo vuelve a
+  empezar con los números que ya se liberaron.
+time_limit_sec: 20
+hints:
+  - "Piensa en turnos numerados."
+---
+id: proc-005
+module: 6
+kind: quiz
+format: multiple_choice
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_3/06_procesos.html#uid-id-del-propietario
+question: |
+  ¿Quién puede enviarle señales (por ejemplo, terminarlo) a un proceso?
+options:
+  - "El usuario que lo creó y el superusuario (root)"
+  - "Cualquier usuario del sistema"
+  - "Solo el superusuario"
+  - "Solo el propio proceso"
+answer: "El usuario que lo creó y el superusuario (root)"
+explanation: |
+  El UID del proceso indica quién lo creó. Solo esa persona y root pueden
+  manipularlo; así nadie termina los programas de otros.
+time_limit_sec: 25
+hints:
+  - "Su dueño... y alguien más."
+---
+id: proc-006
+module: 6
+kind: quiz
+format: multiple_choice
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_3/06_procesos.html#elementos
+question: |
+  El kernel expone información de cada proceso (estado, memoria, archivos
+  abiertos) como archivos. ¿En qué directorio?
+options: ["/proc", "/dev", "/var", "/tmp"]
+answer: "/proc"
+explanation: |
+  Cada proceso tiene un directorio /proc/PID. Por ejemplo, /proc/1234/status
+  muestra el estado del proceso 1234. «Todo es un archivo».
+time_limit_sec: 20
+hints:
+  - "Viene de «process»."
+---
+id: proc-007
+module: 6
+kind: quiz
+format: multiple_choice
+difficulty: 1
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_3/06_procesos.html#señal-int
+question: |
+  ¿Qué señal envías al proceso que corre en la terminal cuando presionas Ctrl-C?
+options: ["INT", "KILL", "TERM", "HUP"]
+answer: "INT"
+explanation: |
+  Ctrl-C manda INT (interrupt): una solicitud para detener lo que se está
+  ejecutando.
+time_limit_sec: 20
+hints:
+  - "Interrumpir."
+---
+id: proc-008
+module: 6
+kind: quiz
+format: multiple_choice
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_3/06_procesos.html#señal-kill
+question: |
+  ¿Qué señal no puede ser ignorada, bloqueada ni manejada por el proceso?
+options: ["KILL", "TERM", "INT", "HUP"]
+answer: "KILL"
+explanation: |
+  Con KILL el kernel termina el proceso directamente, sin darle oportunidad de
+  reaccionar. Por eso es el último recurso.
+time_limit_sec: 20
+hints:
+  - "Es la señal número 9."
+---
+id: proc-009
+module: 6
+kind: quiz
+format: true_false
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_3/06_procesos.html#cómo-envío-una-señal
+question: |
+  «kill PID», sin opciones, envía la señal KILL.
+answer: "falso"
+explanation: |
+  Por omisión kill envía TERM. Para KILL hay que pedirlo: kill -s KILL PID o
+  kill -9 PID.
+time_limit_sec: 20
+hints:
+  - "El nombre del comando engaña."
+---
+id: proc-010
+module: 6
+kind: quiz
+format: multiple_choice
+difficulty: 3
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_3/06_procesos.html#señal-term
+question: |
+  ¿Por qué conviene intentar primero con TERM antes que con KILL?
+options:
+  - "Porque TERM deja que el proceso limpie su estado (guarde, cierre archivos) antes de salir"
+  - "Porque TERM es más rápido"
+  - "Porque KILL reinicia la computadora"
+  - "Porque KILL solo funciona como root"
+answer: "Porque TERM deja que el proceso limpie su estado (guarde, cierre archivos) antes de salir"
+explanation: |
+  TERM es una petición: el programa puede terminar ordenadamente. KILL lo corta
+  de golpe y puede dejar archivos a medias.
+time_limit_sec: 30
+hints:
+  - "Una es una petición amable; la otra, no."
+---
+id: proc-011
+module: 6
+kind: quiz
+format: multiple_choice
+difficulty: 1
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_3/06_procesos.html#actividades
+question: |
+  ¿Qué hace el & al final de «sleep 300 &»?
+options:
+  - "Ejecuta el comando en segundo plano y te devuelve el prompt"
+  - "Ejecuta el comando dos veces"
+  - "Guarda la salida en un archivo"
+  - "Lo ejecuta como administrador"
+answer: "Ejecuta el comando en segundo plano y te devuelve el prompt"
+explanation: |
+  Con & la shell no espera a que termine: puedes seguir escribiendo comandos.
+  «echo $!» muestra el PID del último proceso en segundo plano.
+time_limit_sec: 20
+hints:
+  - "Segundo plano."

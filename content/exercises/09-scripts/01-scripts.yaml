@@ -1,0 +1,305 @@
+# Módulo 9 · Scripts. Cada ejercicio se prueba con bash ./filename y sus tests.
+id: scr-01
+module: 9
+kind: script
+difficulty: 1
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_4/08_scripts.html#scripts
+fixture: taller
+start_dir: taller
+filename: hola.sh
+instructions: "Crea el script hola.sh que muestre el mensaje «¡Hola, mundo!». Empieza con el shebang de bash."
+tests:
+  - stdout_contains: "¡Hola, mundo!"
+require_shebang: true
+solution_file: solutions/hola.sh
+explanation: "La primera línea, #!/bin/bash, indica qué programa ejecuta el script. Las líneas que empiezan con # son comentarios."
+time_limit_sec: 300
+hints:
+  - "La primera línea es #!/bin/bash"
+  - "echo muestra texto."
+---
+id: scr-02
+module: 9
+kind: script
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_4/08_scripts.html#asignación
+fixture: taller
+start_dir: taller
+filename: donde.sh
+instructions: "Crea el script donde.sh que guarde en una variable el directorio actual (usando $(pwd)) y luego muestre «Estoy en: » seguido de esa variable."
+tests:
+  - stdout_regex: "^Estoy en: /\\S+"
+require_shebang: true
+solution_file: solutions/donde.sh
+explanation: "$(comando) ejecuta el comando y pone su salida en ese lugar; así se guarda en una variable."
+time_limit_sec: 300
+hints:
+  - "variable=$(pwd)"
+  - "Para usar el valor: $variable"
+---
+id: scr-03
+module: 9
+kind: script
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_4/08_scripts.html#asignación
+fixture: taller
+start_dir: taller
+filename: saludo.sh
+instructions: "Crea el script saludo.sh que pida nombre, edad y carrera (con read) y luego muestre: ¡Hola NOMBRE, tienes EDAD años y estudias CARRERA, saludos!"
+tests:
+  - stdin: "Ana\n20\nComputación\n"
+    stdout_contains: "¡Hola Ana, tienes 20 años y estudias Computación, saludos!"
+  - stdin: "Luis\n19\nMatemáticas\n"
+    stdout_contains: "¡Hola Luis, tienes 19 años y estudias Matemáticas, saludos!"
+require_shebang: true
+solution_file: solutions/saludo.sh
+explanation: "read -p \"Pregunta: \" variable muestra la pregunta y guarda la respuesta en la misma línea."
+time_limit_sec: 420
+hints:
+  - "read -p \"Nombre: \" nombre"
+  - "Usa las variables dentro de las comillas del echo."
+---
+id: scr-04
+module: 9
+kind: script
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_4/08_scripts.html#variables-especiales
+fixture: taller
+start_dir: taller
+filename: info_sistema.sh
+instructions: "Crea el script info_sistema.sh que muestre, en cuatro líneas, el nombre del equipo (host), el nombre del usuario, la fecha y el directorio actual. Obtén cada dato con un comando."
+tests:
+  - stdout_regex: "\\A(?:[^\\n]+\\n){3}[^\\n]+"
+  - stdout_regex: "20\\d\\d"
+require_shebang: true
+solution_file: solutions/info_sistema.sh
+explanation: "uname -n (o hostname) da el nombre del equipo, whoami el usuario, date la fecha y pwd el directorio."
+time_limit_sec: 420
+hints:
+  - "Los comandos son: uname -n, whoami, date y pwd."
+  - "echo \"Usuario: $(whoami)\""
+---
+id: scr-05
+module: 9
+kind: script
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_4/08_scripts.html#argumentos-de-un-script
+fixture: taller
+start_dir: taller
+filename: argumentos.sh
+instructions: "Crea el script argumentos.sh que muestre: su propio nombre, el primer argumento, el segundo argumento, el total de argumentos y todos los argumentos (en ese orden)."
+tests:
+  - args: ["hola", "1234", "verde"]
+    stdout_regex: "argumentos\\.sh[\\s\\S]*hola[\\s\\S]*1234[\\s\\S]*3[\\s\\S]*hola 1234 verde"
+  - args: ["a", "b", "c", "d"]
+    stdout_regex: "argumentos\\.sh[\\s\\S]*a[\\s\\S]*b[\\s\\S]*4[\\s\\S]*a b c d"
+require_shebang: true
+solution_file: solutions/argumentos.sh
+explanation: "$0 es el nombre del script, $1 y $2 los primeros argumentos, $# cuántos hay y $@ todos."
+time_limit_sec: 420
+hints:
+  - "Revisa la tabla de variables especiales: $0, $1, $#, $@."
+---
+id: scr-06
+module: 9
+kind: script
+difficulty: 3
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_4/08_scripts.html#condicionales
+fixture: taller
+start_dir: taller
+filename: comparar.sh
+instructions: "Crea el script comparar.sh que reciba un número como argumento y diga si es mayor, menor o igual a 10 (usa las palabras «mayor», «menor» o «igual»)."
+tests:
+  - args: ["15"]
+    stdout_regex: "^[^\\n]*mayor[^\\n]*\\n?$"
+  - args: ["3"]
+    stdout_regex: "^[^\\n]*menor[^\\n]*\\n?$"
+  - args: ["10"]
+    stdout_regex: "^[^\\n]*igual[^\\n]*\\n?$"
+require_shebang: true
+solution_file: solutions/comparar.sh
+explanation: "Para comparar números en [ ] se usan -gt, -lt, -eq... Deja espacios alrededor de los corchetes."
+time_limit_sec: 480
+hints:
+  - "if [ \"$1\" -gt 10 ]; then ... elif ...; else ...; fi"
+  - "-gt: mayor que, -lt: menor que."
+---
+id: scr-07
+module: 9
+kind: script
+difficulty: 3
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_4/08_scripts.html#condicionales
+fixture: taller
+start_dir: taller
+filename: archivo.sh
+instructions: "Crea el script archivo.sh que reciba el nombre de un archivo. Si existe, muestra su información con ls -l; si no, muestra «El archivo NOMBRE no existe»."
+tests:
+  - args: ["ejemplo.txt"]
+    stdout_regex: "(?m)^-\\S+\\s.*ejemplo\\.txt$"
+  - args: ["fantasma.txt"]
+    stdout_contains: "El archivo fantasma.txt no existe"
+require_shebang: true
+solution_file: solutions/archivo.sh
+explanation: "[ -f archivo ] es verdadero si el archivo existe y es un archivo regular; [ -d dir ] hace lo mismo con directorios."
+time_limit_sec: 480
+hints:
+  - "if [ -f \"$1\" ]; then ..."
+---
+id: scr-08
+module: 9
+kind: script
+difficulty: 3
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_4/08_scripts.html#while
+fixture: taller
+start_dir: taller
+filename: cuenta_atras.sh
+instructions: "Crea el script cuenta_atras.sh que reciba un número y muestre una cuenta regresiva hasta 0, un número por línea."
+tests:
+  - args: ["3"]
+    stdout_regex: "\\A3\\n2\\n1\\n0\\n?\\z"
+  - args: ["5"]
+    stdout_regex: "\\A5\\n4\\n3\\n2\\n1\\n0\\n?\\z"
+require_shebang: true
+solution_file: solutions/cuenta_atras.sh
+explanation: "(( )) hace aritmética: ((n--)) resta uno a n. Sin actualizar la variable, el while nunca terminaría."
+time_limit_sec: 480
+hints:
+  - "while [ \"$n\" -ge 0 ]; do ... done"
+  - "((n--)) resta uno."
+---
+id: scr-09
+module: 9
+kind: script
+difficulty: 3
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_4/08_scripts.html#for
+fixture: taller
+start_dir: taller
+filename: tabla.sh
+instructions: "Crea el script tabla.sh que reciba un número N y muestre su tabla de multiplicar del 1 al 10, con el formato «N x i = resultado» (por ejemplo, 7 x 2 = 14)."
+tests:
+  - args: ["7"]
+    stdout_regex: "7 x 1 = 7\\n7 x 2 = 14\\n[\\s\\S]*7 x 10 = 70"
+  - args: ["3"]
+    stdout_contains: "3 x 10 = 30"
+require_shebang: true
+solution_file: solutions/tabla.sh
+explanation: "for recorre una lista; $(( )) calcula y devuelve el resultado."
+time_limit_sec: 480
+hints:
+  - "for i in 1 2 3 4 5 6 7 8 9 10; do ... done"
+  - "$(($1 * i)) multiplica."
+---
+id: scr-10
+module: 9
+kind: script
+difficulty: 3
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_4/08_scripts.html#bucle-for-estilo-c
+fixture: taller
+start_dir: taller
+filename: suma.sh
+instructions: "Crea el script suma.sh que reciba un número N y muestre «La suma es X», donde X es 1 + 2 + ... + N. Usa un for estilo C."
+tests:
+  - args: ["10"]
+    stdout_contains: "La suma es 55"
+  - args: ["100"]
+    stdout_contains: "La suma es 5050"
+require_shebang: true
+solution_file: solutions/suma.sh
+explanation: "for ((i = 1; i <= N; i++)) se parece al for de C: inicio, condición e incremento."
+time_limit_sec: 480
+hints:
+  - "for ((i = 1; i <= $1; i++)); do ... done"
+  - "((suma += i)) acumula."
+---
+id: scr-11
+module: 9
+kind: script
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_4/08_scripts.html#códigos-de-salida
+fixture: taller
+start_dir: taller
+filename: codigo.sh
+instructions: "Crea el script codigo.sh que ejecute ls con el archivo que recibe como argumento (sin mostrar nada en pantalla) y después muestre «Código: » seguido del código de salida de ls."
+tests:
+  - args: ["ejemplo.txt"]
+    stdout_contains: "Código: 0"
+  - args: ["no_hay.txt"]
+    stdout_contains: "Código: 2"
+require_shebang: true
+solution_file: solutions/codigo.sh
+explanation: "$? guarda el código de salida del último comando: 0 es éxito y otro número indica un error (ls usa 2 cuando no encuentra el archivo)."
+time_limit_sec: 420
+hints:
+  - "Manda la salida y los errores de ls a /dev/null."
+  - "echo \"Código: $?\" justo después de ls."
+---
+id: scr-12
+module: 9
+kind: script
+difficulty: 3
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_4/08_scripts.html#redireccionamiento
+fixture: taller
+start_dir: taller
+filename: mostrar.sh
+instructions: "Crea el script mostrar.sh que intente mostrar el archivo recibido como argumento. Si falla, guarda el error de cat al final de error.log y muestra en pantalla «Error al mostrar el archivo»."
+tests:
+  - args: ["ejemplo.txt"]
+    stdout_contains: "Hola, soy un archivo de ejemplo."
+  - args: ["nada.txt"]
+    stdout_contains: "Error al mostrar el archivo"
+    files: {"error.log": "cat: nada.txt: No such file or directory\n"}
+require_shebang: true
+solution_file: solutions/mostrar.sh
+explanation: "2>> agrega los errores al final de error.log (sin borrar los anteriores), y || ejecuta lo que sigue solo si el comando anterior falló."
+time_limit_sec: 480
+hints:
+  - "cat \"$1\" 2>> error.log"
+  - "comando || echo \"...\""
+---
+id: scr-13
+module: 9
+kind: script
+difficulty: 3
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_4/08_scripts.html#redireccionamiento
+fixture: taller
+start_dir: taller
+filename: contar_lineas.sh
+instructions: "Crea el script contar_lineas.sh que reciba un archivo como argumento. Si existe, escribe en salida.txt solo el número de líneas del archivo, reemplazando lo que tuviera. Si no existe, muestra un mensaje de error y termina con código de salida 1."
+tests:
+  - args: ["ejemplo.txt"]
+    files: {"salida.txt": "4\n"}
+  - args: ["dia-1/Dewey.txt"]
+    files: {"salida.txt": "16\n"}
+  - args: ["nada.txt"]
+    exit_code: 1
+require_shebang: true
+solution_file: solutions/contar_lineas.sh
+explanation: "wc -l < archivo da solo el número. > reemplaza el contenido de salida.txt; con >> los números se irían acumulando. exit 1 termina el script con código 1, que indica un error."
+time_limit_sec: 480
+hints:
+  - "if [ -f \"$1\" ]; then ... else ... fi"
+  - "wc -l < \"$1\" > salida.txt"
+  - "exit 1 termina con código 1."
+---
+id: scr-14
+module: 9
+kind: script
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_4/08_scripts.html#códigos-de-salida
+fixture: taller
+start_dir: taller
+filename: validar_args.sh
+instructions: "Crea el script validar_args.sh. Si no recibe argumentos, muestra «Uso: validar_args.sh ARCHIVO» y termina con código de salida 1. Si recibe uno, muestra «Recibí: » seguido del argumento y termina con código 0."
+tests:
+  - stdout_contains: "Uso: validar_args.sh ARCHIVO"
+    exit_code: 1
+  - args: ["datos.txt"]
+    stdout_contains: "Recibí: datos.txt"
+    exit_code: 0
+require_shebang: true
+solution_file: solutions/validar_args.sh
+explanation: "$# dice cuántos argumentos llegaron. Terminar con exit 1 permite que otros comandos sepan que algo salió mal, por ejemplo con && o ||."
+time_limit_sec: 420
+hints:
+  - "if [ $# -eq 0 ]; then ... fi"
+  - "exit 1 termina el script con ese código."

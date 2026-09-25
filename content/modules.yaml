@@ -1,0 +1,56 @@
+# Orden, títulos, fuente y requisitos de desbloqueo de los módulos.
+# kind: theory (mín. 15 ejercicios), mixed/practice (mín. 10), exam (toma ejercicios de todos).
+# open: abierto desde el inicio; los demás se desbloquean con rango C o más en el anterior.
+modules:
+  - id: 1
+    title: Introducción
+    dir: 01-introduccion
+    kind: theory
+    open: true
+    source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_1/01_introduccion.html
+  - id: 2
+    title: Sistema de archivos
+    dir: 02-sistema-archivos
+    kind: mixed
+    open: true
+    source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_1/03_sistemas_archivos.html
+  - id: 3
+    title: SSH
+    dir: 03-ssh
+    kind: theory
+    open: true
+    source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_1/02_ssh.html
+  - id: 4
+    title: Comandos básicos
+    dir: 04-comandos-basicos
+    kind: practice
+    source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_2/04_comandos_basicos.html
+  - id: 5
+    title: Instalación de software
+    dir: 05-instalacion
+    kind: theory
+    source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_2/05_instalacion_de_paquetes.html
+  - id: 6
+    title: Procesos
+    dir: 06-procesos
+    kind: mixed
+    source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_3/06_procesos.html
+  - id: 7
+    title: Redirección y pipes
+    dir: 07-redireccion
+    kind: practice
+    source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_3/07_filtrado.html#redirección-y-pipes
+  - id: 8
+    title: Filtrado
+    dir: 08-filtrado
+    kind: practice
+    source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_3/07_filtrado.html#filtrado
+  - id: 9
+    title: Scripts
+    dir: 09-scripts
+    kind: practice
+    source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_4/08_scripts.html
+  - id: 10
+    title: Examen final
+    kind: exam
+    source: https://lsvp-uami.github.io/mdbook-curso-linux-0/print.html

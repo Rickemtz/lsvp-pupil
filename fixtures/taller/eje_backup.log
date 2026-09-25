@@ -1,0 +1,7 @@
+2024-03-04 09:00:01 INFO  inicio del respaldo
+2024-03-04 09:00:02 INFO  copiando taller/archivo.txt
+2024-03-04 09:00:02 INFO  copiando taller/dia-1/Dewey.txt
+2024-03-04 09:00:03 WARN  taller/dia-1/frases.txt cambió durante la copia
+2024-03-04 09:00:03 INFO  copiando taller/ejemplo.txt
+2024-03-04 09:00:04 ERROR no se pudo leer taller/privado.txt: permiso denegado
+2024-03-04 09:00:05 INFO  respaldo terminado con 1 error y 1 advertencia

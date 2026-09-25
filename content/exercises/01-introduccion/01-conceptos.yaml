@@ -1,0 +1,243 @@
+# Módulo 1 · Conceptos: sistema operativo, kernel, terminal, intérprete, distribuciones.
+id: intro-001
+module: 1
+kind: quiz
+format: multiple_choice
+difficulty: 1
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_1/01_introduccion.html#el-sistema-operativo-gnulinux-es-una-herramienta
+question: |
+  Tu computadora tiene memoria, procesador, disco y un teclado conectado.
+  ¿Qué hace el sistema operativo con todo eso?
+options:
+  - "Administra esos recursos y los reparte entre los programas"
+  - "Es la parte física que los conecta entre sí"
+  - "Es el lenguaje con el que se programan los dispositivos"
+  - "Es un navegador que permite usarlos desde internet"
+answer: "Administra esos recursos y los reparte entre los programas"
+explanation: |
+  El sistema operativo es software: controla la memoria, el procesador y los
+  dispositivos, y ofrece a los programas una forma sencilla de usarlos.
+time_limit_sec: 25
+hints:
+  - "No es hardware: es un programa que manda sobre el hardware."
+---
+id: intro-002
+module: 1
+kind: quiz
+format: multiple_choice
+difficulty: 1
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_1/01_introduccion.html#kernel
+question: |
+  ¿Cómo se llama la parte del sistema operativo que habla directamente con el
+  hardware y decide qué programa usa el procesador en cada momento?
+options: ["El kernel (núcleo)", "El intérprete de comandos", "El emulador de terminal", "La distribución"]
+answer: "El kernel (núcleo)"
+explanation: |
+  El kernel es el corazón del sistema: gestiona la memoria, los procesos y los
+  dispositivos. Linux, en sentido estricto, es un kernel.
+time_limit_sec: 20
+hints:
+  - "En español también se le dice «núcleo»."
+---
+id: intro-003
+module: 1
+kind: quiz
+format: true_false
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_1/01_introduccion.html#kernel
+question: |
+  Solo con el kernel Linux, sin intérprete de comandos ni herramientas básicas,
+  ya tienes un sistema listo para que una persona trabaje en él.
+answer: "falso"
+explanation: |
+  El kernel administra el hardware, pero por sí solo no te da una forma de
+  pedirle cosas. Hacen falta un intérprete de comandos, utilidades como ls o cp
+  y demás programas; por eso se habla del sistema completo como GNU/Linux.
+time_limit_sec: 20
+hints:
+  - "¿Con qué programa le darías órdenes al kernel?"
+---
+id: intro-004
+module: 1
+kind: quiz
+format: multiple_choice
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_1/01_introduccion.html#terminal
+question: |
+  En los primeros sistemas Unix, ¿qué era una «terminal»?
+options:
+  - "Un aparato con teclado y pantalla (o impresora) conectado a una computadora central"
+  - "Una ventana dentro de un escritorio gráfico"
+  - "El programa que interpreta los comandos"
+  - "El último proceso que se ejecuta al apagar la máquina"
+answer: "Un aparato con teclado y pantalla (o impresora) conectado a una computadora central"
+explanation: |
+  Originalmente la terminal era hardware: varias personas usaban la misma
+  computadora grande, cada una desde su propia terminal física.
+time_limit_sec: 25
+hints:
+  - "Piensa en una época en la que no existían los escritorios con ventanas."
+---
+id: intro-005
+module: 1
+kind: quiz
+format: multiple_choice
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_1/01_introduccion.html#emulador-de-terminal
+question: |
+  kitty, GNOME Terminal o Konsole son ejemplos de...
+options: ["Emuladores de terminal", "Intérpretes de comandos", "Kernels", "Distribuciones"]
+answer: "Emuladores de terminal"
+explanation: |
+  Un emulador de terminal es un programa gráfico que imita a las terminales
+  físicas. Dentro de él corre un intérprete de comandos, como bash o zsh.
+time_limit_sec: 20
+hints:
+  - "Imitan en una ventana a un aparato que antes era físico."
+---
+id: intro-006
+module: 1
+kind: quiz
+format: multi_select
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_1/01_introduccion.html#interprete-de-comandos
+question: |
+  ¿Cuáles de estos son intérpretes de comandos (shells)? Marca todos los que apliquen.
+options: ["bash", "zsh", "kitty", "fish", "GNOME Terminal", "sh"]
+answer: ["bash", "zsh", "fish", "sh"]
+explanation: |
+  sh, bash, zsh y fish son shells: leen lo que escribes y lo ejecutan.
+  kitty y GNOME Terminal son emuladores de terminal, las ventanas donde corren.
+time_limit_sec: 30
+hints:
+  - "Dos de las opciones son ventanas, no intérpretes."
+---
+id: intro-007
+module: 1
+kind: quiz
+format: multiple_choice
+difficulty: 1
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_1/01_introduccion.html#interprete-de-comandos
+question: |
+  Abres una terminal, escribes `ls` y presionas Enter. ¿Qué programa lee esa
+  línea, la interpreta y ejecuta la orden?
+options: ["El intérprete de comandos (shell)", "El emulador de terminal", "El gestor de ventanas", "El BIOS"]
+answer: "El intérprete de comandos (shell)"
+explanation: |
+  El emulador solo muestra texto y recibe el teclado. Quien «te pregunta qué
+  quieres hacer» y ejecuta la orden es el shell.
+time_limit_sec: 20
+hints:
+  - "Su nombre dice lo que hace con tus órdenes."
+---
+id: intro-008
+module: 1
+kind: quiz
+format: true_false
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_1/01_introduccion.html#algunos-conceptos-importantes-para-fistas-y-leer-documentación
+question: |
+  Una terminal sin intérprete de comandos puede mostrar texto y recibir lo que
+  tecleas, pero no ejecuta tus órdenes.
+answer: "verdadero"
+explanation: |
+  La terminal es la vía de entrada y salida. Sin un shell que interprete lo que
+  escribes, nadie convierte ese texto en acciones.
+time_limit_sec: 20
+hints:
+  - "Separa quién muestra el texto de quién lo entiende."
+---
+id: intro-009
+module: 1
+kind: quiz
+format: short_answer
+difficulty: 1
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_1/01_introduccion.html#interprete-de-comandos
+question: |
+  ¿Cómo se llama el shell que viene por defecto en la mayoría de las
+  distribuciones GNU/Linux y que usaremos en este curso?
+answer: "bash"
+accepted: ["Bourne Again Shell", "Bourne-Again Shell", "GNU bash"]
+explanation: |
+  bash (Bourne Again SHell) es el shell del proyecto GNU y el que encontrarás
+  en casi cualquier servidor.
+time_limit_sec: 30
+hints:
+  - "Cuatro letras; su nombre es un juego de palabras con «Bourne again»."
+---
+id: intro-010
+module: 1
+kind: quiz
+format: multiple_choice
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_1/01_introduccion.html#distribución-distro
+question: |
+  ¿Qué es una distribución de GNU/Linux?
+options:
+  - "El kernel Linux junto con herramientas, programas y un gestor de paquetes, listos para instalar"
+  - "Una versión del kernel Linux modificada por cada fabricante de computadoras"
+  - "Un intérprete de comandos alternativo a bash"
+  - "Un servidor desde el que se descarga internet"
+answer: "El kernel Linux junto con herramientas, programas y un gestor de paquetes, listos para instalar"
+explanation: |
+  Debian, Fedora o Arch toman el mismo kernel y lo empaquetan con herramientas
+  GNU, un gestor de paquetes y sus propias decisiones de configuración.
+time_limit_sec: 25
+hints:
+  - "Piensa en un «paquete completo» que puedes instalar."
+---
+id: intro-011
+module: 1
+kind: quiz
+format: multi_select
+difficulty: 1
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_1/01_introduccion.html#distribución-distro
+question: |
+  ¿Cuáles de estas son distribuciones de GNU/Linux? Marca todas las que apliquen.
+options: ["Debian", "Fedora", "zsh", "Arch Linux", "Multics"]
+answer: ["Debian", "Fedora", "Arch Linux"]
+explanation: |
+  Debian, Fedora y Arch Linux son distribuciones. zsh es un shell y Multics
+  es un sistema operativo antiguo que inspiró a Unix.
+time_limit_sec: 30
+hints:
+  - "Una de las opciones es un shell y otra es un sistema de los años 60."
+---
+id: intro-012
+module: 1
+kind: quiz
+format: multiple_choice
+difficulty: 1
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_1/01_introduccion.html#formas-de-interactuar-con-el-so
+question: |
+  Te dan acceso a un servidor del laboratorio que no tiene entorno gráfico.
+  ¿Cómo trabajas en él?
+options:
+  - "Con la interfaz de línea de comandos (CLI)"
+  - "Con la interfaz gráfica de usuario (GUI)"
+  - "Solo instalando un escritorio antes de usarlo"
+  - "No se puede usar sin pantalla ni ratón"
+answer: "Con la interfaz de línea de comandos (CLI)"
+explanation: |
+  En GNU/Linux la forma principal de interactuar es la línea de comandos; la
+  interfaz gráfica es secundaria y muchos servidores ni siquiera la tienen.
+time_limit_sec: 20
+hints:
+  - "Escribes órdenes en vez de hacer clic."
+---
+id: intro-013
+module: 1
+kind: quiz
+format: short_answer
+difficulty: 1
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_1/01_introduccion.html#formas-de-interactuar-con-el-so
+question: |
+  ¿Qué siglas en inglés se usan para la interfaz de línea de comandos?
+answer: "CLI"
+accepted: ["command line interface", "command-line interface"]
+explanation: |
+  CLI significa Command Line Interface. Su contraparte es la GUI
+  (Graphical User Interface).
+time_limit_sec: 20
+hints:
+  - "Tres letras; la contraparte es GUI."

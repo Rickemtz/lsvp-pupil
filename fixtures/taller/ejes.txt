@@ -1,0 +1,4 @@
+Un eje es una línea de referencia.
+En el plano cartesiano hay dos ejes: x (horizontal) e y (vertical).
+En el espacio se agrega un tercero: z.
+La Tierra gira sobre su propio eje una vez al día.

@@ -1,0 +1,5 @@
+Práctica de comandos básicos
+1. Averigua en qué directorio estás.
+2. Lista el contenido del directorio, incluidos los archivos ocultos.
+3. Crea un directorio llamado pruebas.
+4. Copia este archivo dentro de pruebas.

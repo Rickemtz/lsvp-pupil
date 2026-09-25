@@ -1,0 +1,14 @@
+# Imagen del backend container de lsvp-pupil (make image).
+# Debian mínima con las herramientas que usa el curso. La imagen «slim» excluye los manuales;
+# se quita esa exclusión y se reinstalan los paquetes base para que man funcione.
+FROM debian:stable-slim
+
+RUN rm -f /etc/dpkg/dpkg.cfg.d/docker* \
+ && apt-get update \
+ && apt-get install -y --no-install-recommends \
+      coreutils grep procps findutils less man-db manpages nano vim-tiny htop \
+ && apt-get install -y --no-install-recommends --reinstall coreutils grep findutils bash sed gawk \
+ && mandb -q \
+ && rm -rf /var/lib/apt/lists/*
+
+CMD ["bash", "--noprofile", "--norc"]

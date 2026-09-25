@@ -1,0 +1,251 @@
+# Módulo 5 · Compilación, paquetes y repositorios.
+id: inst-001
+module: 5
+kind: quiz
+format: multiple_choice
+difficulty: 1
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_2/05_instalacion_de_paquetes.html#ventajas-y-desventajas-de-compilar
+question: |
+  ¿Cuál es una ventaja de compilar un programa desde su código fuente?
+options:
+  - "Puedes adaptarlo y optimizarlo para tu hardware"
+  - "Es siempre más rápido que instalar un paquete"
+  - "No necesitas saber nada técnico"
+  - "Se actualiza solo"
+answer: "Puedes adaptarlo y optimizarlo para tu hardware"
+explanation: |
+  Compilar da control total: eliges opciones, versiones y optimizaciones. A
+  cambio, pide tiempo y conocimientos.
+time_limit_sec: 20
+hints:
+  - "Piensa en «control»."
+---
+id: inst-002
+module: 5
+kind: quiz
+format: multiple_choice
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_2/05_instalacion_de_paquetes.html#ventajas-y-desventajas-de-compilar
+question: |
+  Compilaste a mano veinte programas. Un año después, ¿cuál es el problema más
+  probable?
+options:
+  - "Es difícil saber qué tienes instalado y mantenerlo actualizado"
+  - "Los programas dejan de funcionar al cumplir un año"
+  - "El kernel borra los programas compilados"
+  - "Ninguno: compilar no tiene desventajas"
+answer: "Es difícil saber qué tienes instalado y mantenerlo actualizado"
+explanation: |
+  Sin un sistema de paquetes, tú llevas el control de versiones, dependencias y
+  actualizaciones. Justo para eso surgieron los paquetes.
+time_limit_sec: 25
+hints:
+  - "¿Quién lleva la cuenta de lo instalado?"
+---
+id: inst-003
+module: 5
+kind: quiz
+format: multiple_choice
+difficulty: 1
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_2/05_instalacion_de_paquetes.html#herramientas-del-proyecto-gnu
+question: |
+  ¿Qué es GCC?
+options:
+  - "Una colección de compiladores que convierte código fuente en programas ejecutables"
+  - "Un gestor de paquetes de Fedora"
+  - "Un editor de texto"
+  - "Un servidor de repositorios"
+answer: "Una colección de compiladores que convierte código fuente en programas ejecutables"
+explanation: |
+  GCC (GNU Compiler Collection) compila C, C++, Fortran, Go y otros lenguajes.
+time_limit_sec: 20
+hints:
+  - "La última C es de «collection»; la segunda, de «compiler»."
+---
+id: inst-004
+module: 5
+kind: quiz
+format: multiple_choice
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_2/05_instalacion_de_paquetes.html#herramientas-del-proyecto-gnu
+question: |
+  ¿Para qué sirve make?
+options:
+  - "Automatiza la compilación siguiendo las reglas de un archivo Makefile"
+  - "Crea directorios nuevos"
+  - "Descarga paquetes de internet"
+  - "Genera llaves SSH"
+answer: "Automatiza la compilación siguiendo las reglas de un archivo Makefile"
+explanation: |
+  En un proyecto grande hay muchos archivos que compilar en orden. make lee el
+  Makefile y hace solo lo necesario.
+time_limit_sec: 25
+hints:
+  - "Su archivo de reglas lleva su nombre."
+---
+id: inst-005
+module: 5
+kind: quiz
+format: multiple_choice
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_2/05_instalacion_de_paquetes.html#herramientas-del-proyecto-gnu
+question: |
+  ¿Qué hace el script ./configure que traen muchos programas en código fuente?
+options:
+  - "Revisa tu sistema y genera el Makefile adecuado para él"
+  - "Instala el programa en /usr/bin"
+  - "Borra los archivos temporales de la compilación"
+  - "Configura la red"
+answer: "Revisa tu sistema y genera el Makefile adecuado para él"
+explanation: |
+  configure (generado con Autoconf) detecta compilador, bibliotecas y sistema, y
+  escribe un Makefile a la medida. El orden típico es ./configure, make y make install.
+time_limit_sec: 25
+hints:
+  - "Va antes de make."
+---
+id: inst-006
+module: 5
+kind: quiz
+format: multiple_choice
+difficulty: 1
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_2/05_instalacion_de_paquetes.html#2-gestión-de-paquetes-locales-bajo-nivel
+question: |
+  ¿Qué contiene un paquete de software?
+options:
+  - "Los programas ya compilados, su configuración, scripts de instalación y la lista de dependencias"
+  - "Solo el código fuente"
+  - "Solo el manual del programa"
+  - "Una copia del sistema operativo completo"
+answer: "Los programas ya compilados, su configuración, scripts de instalación y la lista de dependencias"
+explanation: |
+  Un paquete trae todo listo para instalar, e indica qué otros paquetes necesita.
+time_limit_sec: 25
+hints:
+  - "Ya viene compilado."
+---
+id: inst-007
+module: 5
+kind: quiz
+format: multiple_choice
+difficulty: 1
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_2/05_instalacion_de_paquetes.html#formatos-y-comandos-básicos
+question: |
+  ¿Qué formato de paquete usan Debian, Ubuntu y Linux Mint?
+options: [".deb", ".rpm", ".exe", ".dmg"]
+answer: ".deb"
+explanation: |
+  La familia Debian usa .deb (con dpkg y apt); la familia Red Hat usa .rpm (con
+  rpm y dnf).
+time_limit_sec: 20
+hints:
+  - "Las tres primeras letras de Debian."
+---
+id: inst-008
+module: 5
+kind: quiz
+format: multiple_choice
+difficulty: 1
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_2/05_instalacion_de_paquetes.html#formatos-y-comandos-básicos
+question: |
+  ¿Qué familia de distribuciones usa paquetes .rpm?
+options: ["Red Hat (Fedora, RHEL, Rocky)", "Debian (Ubuntu, Mint)", "Arch", "Ninguna, .rpm es de macOS"]
+answer: "Red Hat (Fedora, RHEL, Rocky)"
+explanation: |
+  RPM viene de «Red Hat Package Manager».
+time_limit_sec: 20
+hints:
+  - "La R es de la empresa que lo creó."
+---
+id: inst-009
+module: 5
+kind: quiz
+format: multiple_choice
+difficulty: 1
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_2/05_instalacion_de_paquetes.html#3-manejadores-de-paquetes-de-alto-nivel
+question: |
+  ¿Qué es un repositorio de software?
+options:
+  - "Un servidor que guarda los paquetes de una distribución, revisados para que funcionen juntos"
+  - "Una carpeta en tu home donde se guardan descargas"
+  - "Un programa para compilar"
+  - "Una lista de contraseñas"
+answer: "Un servidor que guarda los paquetes de una distribución, revisados para que funcionen juntos"
+explanation: |
+  Los desarrolladores de la distribución mantienen los repositorios para asegurar
+  compatibilidad y seguridad. apt, dnf y pacman descargan de ahí.
+time_limit_sec: 25
+hints:
+  - "Es un almacén."
+---
+id: inst-010
+module: 5
+kind: quiz
+format: multiple_choice
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_2/05_instalacion_de_paquetes.html#3-manejadores-de-paquetes-de-alto-nivel
+question: |
+  Instalas un programa con apt y resulta que necesita otras tres bibliotecas.
+  ¿Qué hace apt que dpkg no hace?
+options:
+  - "Busca, descarga e instala también esas dependencias desde los repositorios"
+  - "Compila el programa desde el código fuente"
+  - "Nada: apt y dpkg hacen exactamente lo mismo"
+  - "Ignora las dependencias"
+answer: "Busca, descarga e instala también esas dependencias desde los repositorios"
+explanation: |
+  dpkg (bajo nivel) instala un .deb que ya tienes. apt (alto nivel) se conecta a
+  los repositorios y resuelve las dependencias por ti.
+time_limit_sec: 30
+hints:
+  - "Alto nivel = más automático."
+---
+id: inst-011
+module: 5
+kind: quiz
+format: true_false
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_2/05_instalacion_de_paquetes.html#comandos-de-uso-diario
+question: |
+  «apt update» instala las versiones nuevas de todos tus programas.
+answer: "falso"
+explanation: |
+  apt update solo actualiza la lista de paquetes disponibles. Lo que instala las
+  versiones nuevas es apt upgrade; por eso suelen ir juntos: apt update && apt upgrade.
+time_limit_sec: 25
+hints:
+  - "Uno actualiza la lista; el otro, los programas."
+---
+id: inst-012
+module: 5
+kind: quiz
+format: multiple_choice
+difficulty: 1
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_2/05_instalacion_de_paquetes.html#comandos-de-uso-diario
+question: |
+  ¿En qué distribución se usa pacman para instalar paquetes?
+options: ["Arch Linux", "Ubuntu", "Fedora", "Debian"]
+answer: "Arch Linux"
+explanation: |
+  apt es de Debian y Ubuntu, dnf de Fedora y Red Hat, y pacman de Arch (y
+  derivadas como Manjaro o CachyOS).
+time_limit_sec: 20
+hints:
+  - "La que no es Debian ni Red Hat."
+---
+id: inst-013
+module: 5
+kind: quiz
+format: true_false
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_2/05_instalacion_de_paquetes.html#comandos-de-uso-diario
+question: |
+  Instalar paquetes para todo el sistema requiere permisos de administrador, por
+  eso se suele escribir sudo antes de apt install.
+answer: "verdadero"
+explanation: |
+  Instalar escribe en directorios del sistema como /usr, que solo root puede
+  modificar. Buscar o ver información de un paquete no requiere sudo.
+time_limit_sec: 25
+hints:
+  - "¿Quién puede escribir en /usr?"

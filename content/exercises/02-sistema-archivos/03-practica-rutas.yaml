@@ -1,0 +1,110 @@
+# Módulo 2 · Práctica con rutas relativas, absolutas, . y ..
+id: fs-p01
+module: 2
+kind: practice
+difficulty: 1
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_1/03_sistemas_archivos.html#_ruta_relativa
+fixture: taller
+start_dir: taller
+instructions: |
+  Estás en ~/taller. Entra al directorio dia-1.
+checks:
+  - type: cwd
+    path: taller/dia-1
+solution: "cd dia-1"
+time_limit_sec: 45
+hints:
+  - "cd nombre_del_directorio"
+---
+id: fs-p02
+module: 2
+kind: practice
+difficulty: 1
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_1/03_sistemas_archivos.html#caracteres-especiales-para-escribir-rutas
+fixture: taller
+start_dir: taller/dia-1
+instructions: |
+  Estás en ~/taller/dia-1. Sube al directorio padre usando «..».
+checks:
+  - type: cwd
+    path: taller
+solution: "cd .."
+time_limit_sec: 45
+hints:
+  - "Dos puntos significan «un nivel arriba»."
+---
+id: fs-p03
+module: 2
+kind: practice
+difficulty: 1
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_1/03_sistemas_archivos.html#_ruta_absoluta
+fixture: taller
+start_dir: taller/dia-1
+instructions: |
+  Regresa a tu directorio home con un solo comando.
+checks:
+  - type: cwd
+    path: "."
+solution: "cd"
+explanation: |
+  cd sin argumentos, «cd ~» y «cd $HOME» te llevan al home.
+time_limit_sec: 45
+hints:
+  - "cd sin argumentos, o con el símbolo ~"
+---
+id: fs-p04
+module: 2
+kind: practice
+difficulty: 1
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_1/03_sistemas_archivos.html#_ruta_absoluta
+fixture: taller
+start_dir: taller/dia-1
+instructions: |
+  Muestra la ruta absoluta del directorio en el que estás.
+checks:
+  - type: output
+    mode: same_as_solution
+solution: "pwd"
+time_limit_sec: 45
+hints:
+  - "El comando se llama así por «print working directory»."
+---
+id: fs-p05
+module: 2
+kind: practice
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_1/03_sistemas_archivos.html#_ruta_relativa
+fixture: taller
+start_dir: taller/dia-1
+instructions: |
+  Sin salir de dia-1, muestra el contenido de ejemplo.txt, que está en el
+  directorio padre.
+checks:
+  - type: output
+    mode: same_as_solution
+solution: "cat ../ejemplo.txt"
+time_limit_sec: 60
+hints:
+  - "cat muestra el contenido de un archivo."
+  - "El directorio padre se escribe .."
+---
+id: fs-p06
+module: 2
+kind: practice
+difficulty: 2
+source: https://lsvp-uami.github.io/mdbook-curso-linux-0/dia_1/03_sistemas_archivos.html#reglas
+fixture: taller
+start_dir: taller
+instructions: |
+  Lista el contenido de taller incluyendo los archivos ocultos (los que empiezan
+  con punto). Hay uno escondido.
+checks:
+  - type: output
+    mode: regex
+    expected: '(^|\s)\.oculto(\s|$)'
+solution: "ls -a"
+explanation: |
+  Con -a también aparecen . y .., las dos entradas que tiene todo directorio.
+time_limit_sec: 60
+hints:
+  - "ls tiene una opción para mostrar «all» (todo)."

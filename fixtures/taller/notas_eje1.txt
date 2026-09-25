@@ -1,0 +1,4 @@
+Notas del ejercicio 1
+- mkdir -p crea también los directorios intermedios.
+- rmdir solo borra directorios vacíos.
+- rm -r borra un directorio con todo su contenido.
