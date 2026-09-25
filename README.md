@@ -124,7 +124,7 @@ make fixtures   # regenera los archivos de práctica
 make release    # binarios para Linux y macOS en dist/, con SHA256SUMS
 ```
 
-El contenido vive en `content/` como YAML (un directorio por módulo) y se incluye en el binario. `make validate` comprueba el esquema, que cada solución resuelva su ejercicio y que un ejercicio no esté resuelto antes de empezar. La guía completa (arquitectura, formato de ejercicios, reglas del sandbox y de puntuación) está en [CLAUDE.md](CLAUDE.md).
+El contenido vive en `content/` como YAML (un directorio por módulo) y se incluye en el binario. `make validate` comprueba el esquema, que cada solución resuelva su ejercicio y que un ejercicio no esté resuelto antes de empezar.
 
 ## Créditos
 
