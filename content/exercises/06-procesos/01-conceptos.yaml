@@ -17,6 +17,7 @@ explanation: |
   El archivo /usr/bin/sleep es un programa; cada vez que lo ejecutas se crea un
   proceso, con su memoria, su tiempo de CPU y sus archivos abiertos.
 time_limit_sec: 20
+lesson_time_limit_sec: 999999
 hints:
   - "La diferencia entre la receta y el pastel en el horno."
 ---
@@ -38,6 +39,7 @@ explanation: |
   Casi todos los comandos que actúan sobre procesos, como kill, necesitan el PID
   para saber a cuál dirigirse.
 time_limit_sec: 20
+lesson_time_limit_sec: 999999
 hints:
   - "Process ID."
 ---
@@ -59,6 +61,7 @@ explanation: |
   El proceso que crea a otro es su padre. El PPID (Parent PID) de sleep es el
   PID de la shell que lo ejecutó.
 time_limit_sec: 25
+lesson_time_limit_sec: 999999
 hints:
   - "La P extra es de «parent»."
 ---
@@ -75,6 +78,7 @@ explanation: |
   El kernel va asignando números crecientes; cuando llega al máximo vuelve a
   empezar con los números que ya se liberaron.
 time_limit_sec: 20
+lesson_time_limit_sec: 999999
 hints:
   - "Piensa en turnos numerados."
 ---
@@ -96,6 +100,7 @@ explanation: |
   El UID del proceso indica quién lo creó. Solo esa persona y root pueden
   manipularlo; así nadie termina los programas de otros.
 time_limit_sec: 25
+lesson_time_limit_sec: 999999
 hints:
   - "Su dueño... y alguien más."
 ---
@@ -114,6 +119,7 @@ explanation: |
   Cada proceso tiene un directorio /proc/PID. Por ejemplo, /proc/1234/status
   muestra el estado del proceso 1234. «Todo es un archivo».
 time_limit_sec: 20
+lesson_time_limit_sec: 999999
 hints:
   - "Viene de «process»."
 ---
@@ -131,6 +137,7 @@ explanation: |
   Ctrl-C manda INT (interrupt): una solicitud para detener lo que se está
   ejecutando.
 time_limit_sec: 20
+lesson_time_limit_sec: 999999
 hints:
   - "Interrumpir."
 ---
@@ -148,6 +155,7 @@ explanation: |
   Con KILL el kernel termina el proceso directamente, sin darle oportunidad de
   reaccionar. Por eso es el último recurso.
 time_limit_sec: 20
+lesson_time_limit_sec: 999999
 hints:
   - "Es la señal número 9."
 ---
@@ -164,6 +172,7 @@ explanation: |
   Por omisión kill envía TERM. Para KILL hay que pedirlo: kill -s KILL PID o
   kill -9 PID.
 time_limit_sec: 20
+lesson_time_limit_sec: 999999
 hints:
   - "El nombre del comando engaña."
 ---
@@ -185,6 +194,7 @@ explanation: |
   TERM es una petición: el programa puede terminar ordenadamente. KILL lo corta
   de golpe y puede dejar archivos a medias.
 time_limit_sec: 30
+lesson_time_limit_sec: 999999
 hints:
   - "Una es una petición amable; la otra, no."
 ---
@@ -206,5 +216,6 @@ explanation: |
   Con & la shell no espera a que termine: puedes seguir escribiendo comandos.
   «echo $!» muestra el PID del último proceso en segundo plano.
 time_limit_sec: 20
+lesson_time_limit_sec: 999999
 hints:
   - "Segundo plano."

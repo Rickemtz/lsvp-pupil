@@ -13,6 +13,7 @@ answer: "/etc"
 explanation: |
   /etc guarda la configuración del sistema y de las aplicaciones instaladas.
 time_limit_sec: 20
+lesson_time_limit_sec: 999999
 hints:
   - "Piensa en la palabra «configuración»."
 ---
@@ -31,6 +32,7 @@ explanation: |
   /var guarda datos que cambian con el tiempo, como los registros del sistema
   en /var/log.
 time_limit_sec: 25
+lesson_time_limit_sec: 999999
 hints:
   - "Los logs son datos que varían todo el tiempo."
 ---
@@ -49,6 +51,7 @@ explanation: |
   /dev tiene archivos especiales que representan dispositivos: discos,
   particiones, terminales... Un disco suele verse como /dev/sda o /dev/nvme0n1.
 time_limit_sec: 25
+lesson_time_limit_sec: 999999
 hints:
   - "Viene de «devices»."
 ---
@@ -67,5 +70,6 @@ explanation: |
   Algunos tipos comunes: - archivo ordinario, d directorio, l enlace simbólico,
   b y c dispositivos de bloque y de caracteres.
 time_limit_sec: 25
+lesson_time_limit_sec: 999999
 hints:
   - "Los archivos normales llevan un guion."

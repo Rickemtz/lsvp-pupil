@@ -14,6 +14,7 @@ explanation: |
   STDIN (descriptor 0) es por donde lee, STDOUT (1) por donde escribe sus
   resultados y STDERR (2) por donde escribe los mensajes de error.
 time_limit_sec: 30
+lesson_time_limit_sec: 999999
 hints:
   - "Una de las opciones es inventada."
 ---
@@ -35,6 +36,7 @@ answer: "Se borra: notas.txt queda solo con «hola»"
 explanation: |
   > sustituye el contenido. Para agregar al final sin borrar se usa >>.
 time_limit_sec: 25
+lesson_time_limit_sec: 999999
 hints:
   - "Un solo > sobrescribe."
 ---
@@ -56,5 +58,6 @@ explanation: |
   2 es el descriptor de STDERR. 2> redirige solo los errores; la salida normal
   sigue saliendo en pantalla.
 time_limit_sec: 25
+lesson_time_limit_sec: 999999
 hints:
   - "¿Qué canal tiene el número 2?"

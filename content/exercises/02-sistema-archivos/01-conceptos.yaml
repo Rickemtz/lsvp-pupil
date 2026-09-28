@@ -17,6 +17,7 @@ explanation: |
   Un disco solo guarda bloques de datos. El sistema de archivos los convierte
   en algo que podemos nombrar y ordenar: directorios y archivos.
 time_limit_sec: 20
+lesson_time_limit_sec: 999999
 hints:
   - "Piensa en la palabra «archivo» y en «organizar»."
 ---
@@ -35,6 +36,7 @@ explanation: |
   aparecen en el sistema de archivos (en /dev, /proc...) y se leen o escriben
   como flujos de bytes.
 time_limit_sec: 20
+lesson_time_limit_sec: 999999
 hints:
   - "Recuerda la frase que resume la filosofía de Unix sobre los archivos."
 ---
@@ -54,6 +56,7 @@ explanation: |
   archivos, la implementación conecta todo con el hardware, y los permisos
   sirven para proteger, esconder o compartir.
 time_limit_sec: 25
+lesson_time_limit_sec: 999999
 hints:
   - "Proteger, esconder y compartir."
 ---
@@ -71,6 +74,7 @@ explanation: |
   Linux mantiene una sola jerarquía. Un disco nuevo no recibe una letra: se
   monta en algún directorio del árbol, por ejemplo en /mnt.
 time_limit_sec: 20
+lesson_time_limit_sec: 999999
 hints:
   - "¿Cuántas raíces tiene el árbol?"
 ---
@@ -88,6 +92,7 @@ explanation: |
   Todo directorio tiene dos entradas especiales: . (él mismo) y .. (su padre).
   Por eso «cd ..» sube un nivel.
 time_limit_sec: 20
+lesson_time_limit_sec: 999999
 hints:
   - "Un punto es «aquí»; dos puntos es un nivel arriba."
 ---
@@ -105,6 +110,7 @@ explanation: |
   Una ruta absoluta empieza en la raíz, que se escribe /. Por ejemplo:
   /home/alumno/taller.
 time_limit_sec: 20
+lesson_time_limit_sec: 999999
 hints:
   - "Es el mismo carácter que separa los directorios."
 ---
@@ -122,6 +128,7 @@ explanation: |
   Solo la que empieza con / es absoluta. Las demás son relativas: dependen del
   directorio en el que estés.
 time_limit_sec: 20
+lesson_time_limit_sec: 999999
 hints:
   - "Busca la que empieza en la raíz."
 ---
@@ -139,5 +146,6 @@ explanation: |
   Un enlace duro es solo otro nombre para los mismos datos. Hay un único
   contenido con varios nombres; no está duplicado.
 time_limit_sec: 25
+lesson_time_limit_sec: 999999
 hints:
   - "Un enlace es un nombre, no una copia."

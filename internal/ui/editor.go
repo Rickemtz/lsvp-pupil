@@ -84,7 +84,7 @@ func newEditor(ctx exerciseCtx, ex content.Exercise) *editorScreen {
 	return e
 }
 
-func (e *editorScreen) limit() time.Duration { return time.Duration(e.ex.TimeLimitSec) * time.Second }
+func (e *editorScreen) limit() time.Duration { return e.ex.TimeLimit(e.ctx.lessons) }
 
 // scriptRel es la ruta del script relativa al home.
 func (e *editorScreen) scriptRel() string { return path.Join(e.ex.StartDir, e.ex.Filename) }

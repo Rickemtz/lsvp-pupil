@@ -12,6 +12,7 @@ checks:
       - '(sudo )?apt(-get)? install( -y)? cowsay( -y)?'
 solution: "sudo apt install cowsay"
 time_limit_sec: 45
+lesson_time_limit_sec: 999999
 hints:
   - "En Ubuntu el gestor es apt; instalar es install."
   - "Para instalar hace falta sudo."
@@ -29,6 +30,7 @@ checks:
       - '(sudo )?dnf install( -y)? fortune-mod( -y)?'
 solution: "sudo dnf install fortune-mod"
 time_limit_sec: 45
+lesson_time_limit_sec: 999999
 hints:
   - "En Fedora el gestor es dnf."
 ---
@@ -47,6 +49,7 @@ solution: "pacman -Ss moon-buggy"
 explanation: |
   -S sincroniza con los repositorios y s busca. Buscar no necesita sudo.
 time_limit_sec: 60
+lesson_time_limit_sec: 999999
 hints:
   - "pacman usa opciones de letras: S de sync y s de search."
 ---
@@ -63,6 +66,7 @@ checks:
       - '(sudo )?pacman -S( --noconfirm)? moon-buggy'
 solution: "sudo pacman -S moon-buggy"
 time_limit_sec: 45
+lesson_time_limit_sec: 999999
 hints:
   - "Para instalar, pacman usa solo -S."
 ---
@@ -83,6 +87,7 @@ explanation: |
   dpkg instala un .deb local, pero no descarga dependencias. Si falta alguna,
   «sudo apt install ./paquete.deb» la resuelve.
 time_limit_sec: 60
+lesson_time_limit_sec: 999999
 hints:
   - "La herramienta es dpkg; la opción, --install o su forma corta."
 ---
@@ -102,6 +107,7 @@ solution: "rpm -qa"
 explanation: |
   q es de «query» (consultar) y a de «all» (todos). En Debian el equivalente es dpkg -l.
 time_limit_sec: 45
+lesson_time_limit_sec: 999999
 hints:
   - "Consulta (q) todos (a)."
 ---
@@ -122,6 +128,7 @@ solution: "sudo apt update && sudo apt upgrade"
 explanation: |
   && ejecuta el segundo comando solo si el primero terminó bien.
 time_limit_sec: 60
+lesson_time_limit_sec: 999999
 hints:
   - "Primero update, luego upgrade."
   - "Une los dos comandos con &&."
@@ -141,6 +148,7 @@ solution: "sudo apt remove cowsay"
 explanation: |
   remove quita el programa; purge además borra su configuración.
 time_limit_sec: 45
+lesson_time_limit_sec: 999999
 hints:
   - "Lo contrario de install."
 ---
@@ -162,6 +170,7 @@ explanation: |
   Después vendría «sudo make install» para copiar el programa a su lugar en el
   sistema.
 time_limit_sec: 60
+lesson_time_limit_sec: 999999
 hints:
   - "configure es un script del directorio actual: se ejecuta con ./"
   - "Luego make, unidos con &&."

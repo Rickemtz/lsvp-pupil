@@ -14,6 +14,7 @@ checks:
       - 'ssh cluster\.lsvp\.example -l alumno'
 solution: "ssh alumno@cluster.lsvp.example"
 time_limit_sec: 45
+lesson_time_limit_sec: 999999
 hints:
   - "ssh USUARIO@DIRECCIÓN"
 ---
@@ -34,6 +35,7 @@ solution: "ssh maria@192.0.2.10"
 explanation: |
   En lugar del nombre del servidor puedes usar su dirección IP.
 time_limit_sec: 45
+lesson_time_limit_sec: 999999
 hints:
   - "La dirección va después de la @, igual que un nombre."
 ---
@@ -53,6 +55,7 @@ checks:
       - 'ssh -p2222 alumno@cluster\.lsvp\.example'
 solution: "ssh -p 2222 alumno@cluster.lsvp.example"
 time_limit_sec: 60
+lesson_time_limit_sec: 999999
 hints:
   - "La opción para el puerto es la letra p."
 ---
@@ -72,6 +75,7 @@ explanation: |
   ssh-keygen crea las dos llaves en ~/.ssh: la privada (id_ed25519) y la
   pública (id_ed25519.pub). ed25519 es el tipo recomendado hoy.
 time_limit_sec: 60
+lesson_time_limit_sec: 999999
 hints:
   - "El comando junta «ssh» con «key» y «gen»."
 ---
@@ -92,5 +96,6 @@ explanation: |
   ssh-copy-id agrega tu llave pública al archivo ~/.ssh/authorized_keys del
   servidor. Desde entonces, tu llave privada te identifica.
 time_limit_sec: 60
+lesson_time_limit_sec: 999999
 hints:
   - "Hay un comando hecho justo para copiar la llave: ssh-copy-..."

@@ -52,7 +52,7 @@ func newQuiz(ctx exerciseCtx, ex content.Exercise) *quizScreen {
 	return q
 }
 
-func (q *quizScreen) limit() time.Duration { return time.Duration(q.ex.TimeLimitSec) * time.Second }
+func (q *quizScreen) limit() time.Duration { return q.ex.TimeLimit(q.ctx.lessons) }
 
 func (q *quizScreen) maxAttempts() int {
 	if q.ctx.lessons {

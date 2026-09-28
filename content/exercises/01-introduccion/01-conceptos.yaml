@@ -18,6 +18,7 @@ explanation: |
   El sistema operativo es software: controla la memoria, el procesador y los
   dispositivos, y ofrece a los programas una forma sencilla de usarlos.
 time_limit_sec: 25
+lesson_time_limit_sec: 999999
 hints:
   - "No es hardware: es un programa que manda sobre el hardware."
 ---
@@ -36,6 +37,7 @@ explanation: |
   El kernel es el corazón del sistema: gestiona la memoria, los procesos y los
   dispositivos. Linux, en sentido estricto, es un kernel.
 time_limit_sec: 20
+lesson_time_limit_sec: 999999
 hints:
   - "En español también se le dice «núcleo»."
 ---
@@ -54,6 +56,7 @@ explanation: |
   pedirle cosas. Hacen falta un intérprete de comandos, utilidades como ls o cp
   y demás programas; por eso se habla del sistema completo como GNU/Linux.
 time_limit_sec: 20
+lesson_time_limit_sec: 999999
 hints:
   - "¿Con qué programa le darías órdenes al kernel?"
 ---
@@ -75,6 +78,7 @@ explanation: |
   Originalmente la terminal era hardware: varias personas usaban la misma
   computadora grande, cada una desde su propia terminal física.
 time_limit_sec: 25
+lesson_time_limit_sec: 999999
 hints:
   - "Piensa en una época en la que no existían los escritorios con ventanas."
 ---
@@ -92,6 +96,7 @@ explanation: |
   Un emulador de terminal es un programa gráfico que imita a las terminales
   físicas. Dentro de él corre un intérprete de comandos, como bash o zsh.
 time_limit_sec: 20
+lesson_time_limit_sec: 999999
 hints:
   - "Imitan en una ventana a un aparato que antes era físico."
 ---
@@ -109,6 +114,7 @@ explanation: |
   sh, bash, zsh y fish son shells: leen lo que escribes y lo ejecutan.
   kitty y GNOME Terminal son emuladores de terminal, las ventanas donde corren.
 time_limit_sec: 30
+lesson_time_limit_sec: 999999
 hints:
   - "Dos de las opciones son ventanas, no intérpretes."
 ---
@@ -127,6 +133,7 @@ explanation: |
   El emulador solo muestra texto y recibe el teclado. Quien «te pregunta qué
   quieres hacer» y ejecuta la orden es el shell.
 time_limit_sec: 20
+lesson_time_limit_sec: 999999
 hints:
   - "Su nombre dice lo que hace con tus órdenes."
 ---
@@ -144,6 +151,7 @@ explanation: |
   La terminal es la vía de entrada y salida. Sin un shell que interprete lo que
   escribes, nadie convierte ese texto en acciones.
 time_limit_sec: 20
+lesson_time_limit_sec: 999999
 hints:
   - "Separa quién muestra el texto de quién lo entiende."
 ---
@@ -162,6 +170,7 @@ explanation: |
   bash (Bourne Again SHell) es el shell del proyecto GNU y el que encontrarás
   en casi cualquier servidor.
 time_limit_sec: 30
+lesson_time_limit_sec: 999999
 hints:
   - "Cuatro letras; su nombre es un juego de palabras con «Bourne again»."
 ---
@@ -183,6 +192,7 @@ explanation: |
   Debian, Fedora o Arch toman el mismo kernel y lo empaquetan con herramientas
   GNU, un gestor de paquetes y sus propias decisiones de configuración.
 time_limit_sec: 25
+lesson_time_limit_sec: 999999
 hints:
   - "Piensa en un «paquete completo» que puedes instalar."
 ---
@@ -200,6 +210,7 @@ explanation: |
   Debian, Fedora y Arch Linux son distribuciones. zsh es un shell y Multics
   es un sistema operativo antiguo que inspiró a Unix.
 time_limit_sec: 30
+lesson_time_limit_sec: 999999
 hints:
   - "Una de las opciones es un shell y otra es un sistema de los años 60."
 ---
@@ -222,6 +233,7 @@ explanation: |
   En GNU/Linux la forma principal de interactuar es la línea de comandos; la
   interfaz gráfica es secundaria y muchos servidores ni siquiera la tienen.
 time_limit_sec: 20
+lesson_time_limit_sec: 999999
 hints:
   - "Escribes órdenes en vez de hacer clic."
 ---
@@ -239,5 +251,6 @@ explanation: |
   CLI significa Command Line Interface. Su contraparte es la GUI
   (Graphical User Interface).
 time_limit_sec: 20
+lesson_time_limit_sec: 999999
 hints:
   - "Tres letras; la contraparte es GUI."

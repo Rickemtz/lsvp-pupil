@@ -18,6 +18,7 @@ explanation: |
   a: procesos de todos los usuarios; u: formato con usuario, CPU y memoria;
   x: también los que no tienen terminal.
 time_limit_sec: 45
+lesson_time_limit_sec: 999999
 hints:
   - "ps con las opciones a, u y x."
 ---
@@ -43,6 +44,7 @@ explanation: |
   El pipe manda la salida de ps a grep, que deja solo las líneas con «sleep».
   También aparece el propio grep, porque su línea de comando contiene la palabra.
 time_limit_sec: 60
+lesson_time_limit_sec: 999999
 hints:
   - "ps aux muestra todo; grep filtra."
   - "Únelos con |"
@@ -67,6 +69,7 @@ solution: "kill %1"
 explanation: |
   kill PID (o kill %1, «el trabajo 1 de esta shell») envía TERM.
 time_limit_sec: 60
+lesson_time_limit_sec: 999999
 hints:
   - "Busca el PID con ps."
   - "kill PID"
@@ -90,6 +93,7 @@ solution: "kill -9 %1"
 explanation: |
   kill -s KILL PID, kill -KILL PID y kill -9 PID son equivalentes.
 time_limit_sec: 60
+lesson_time_limit_sec: 999999
 hints:
   - "La señal es KILL."
   - "kill -s SEÑAL PID"
@@ -114,6 +118,7 @@ explanation: |
   Ctrl-C solo funciona con lo que corre en primer plano. Para un proceso en
   segundo plano, la misma señal se manda con kill -s INT.
 time_limit_sec: 60
+lesson_time_limit_sec: 999999
 hints:
   - "Ctrl-C manda INT."
   - "kill -s INT PID"
@@ -135,6 +140,7 @@ solution: "sleep 300 & echo $!"
 explanation: |
   $! guarda el PID del último proceso que lanzaste en segundo plano.
 time_limit_sec: 60
+lesson_time_limit_sec: 999999
 hints:
   - "& lo manda a segundo plano."
   - "La variable $! tiene el PID del último proceso en segundo plano."

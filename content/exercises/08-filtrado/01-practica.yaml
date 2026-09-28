@@ -15,6 +15,7 @@ solution: "wc datos.csv"
 explanation: |
   Sin opciones, wc muestra las tres cuentas: líneas, palabras y bytes.
 time_limit_sec: 45
+lesson_time_limit_sec: 999999
 hints:
   - "wc cuenta líneas (-l), palabras (-w) y caracteres (-c)."
 ---
@@ -34,6 +35,7 @@ solution: "grep Fuego datos.csv"
 explanation: |
   grep deja pasar solo las líneas donde encuentra el patrón.
 time_limit_sec: 45
+lesson_time_limit_sec: 999999
 hints:
   - "grep patrón archivo"
 ---
@@ -53,6 +55,7 @@ solution: "grep -i agua datos.csv | wc -l"
 explanation: |
   Con -i, grep encuentra Agua (el tipo) y también «agua» en minúsculas dentro de algunos nombres. grep -ic agua datos.csv da el mismo número.
 time_limit_sec: 75
+lesson_time_limit_sec: 999999
 hints:
   - "grep tiene una opción para ignorar mayúsculas."
   - "Cuenta las líneas con wc -l."
@@ -73,6 +76,7 @@ solution: "grep -v Verdadero datos.csv | wc -l"
 explanation: |
   -v invierte el filtro. Ojo: el encabezado también cuenta, porque no dice Verdadero.
 time_limit_sec: 75
+lesson_time_limit_sec: 999999
 hints:
   - "grep tiene una opción para invertir la búsqueda."
 ---
@@ -92,6 +96,7 @@ solution: "head -n 10 datos.csv | tail -n 6"
 explanation: |
   head se queda con las primeras 10; de ellas, tail toma las últimas 6: de la 5 a la 10.
 time_limit_sec: 90
+lesson_time_limit_sec: 999999
 hints:
   - "Primero corta con head hasta la línea 10."
   - "Luego tail con las que te sobran."
@@ -110,6 +115,7 @@ checks:
     mode: same_as_solution
 solution: "tail -n 2 datos.csv | head -n 1"
 time_limit_sec: 75
+lesson_time_limit_sec: 999999
 hints:
   - "Toma las dos últimas líneas y quédate con la primera."
 ---
@@ -129,6 +135,7 @@ solution: "cut -d \",\" -f 2,6 datos.csv | head"
 explanation: |
   Primero hay que saber que el separador es la coma (lo ves con head -n 1 datos.csv).
 time_limit_sec: 90
+lesson_time_limit_sec: 999999
 hints:
   - "cut -d separador -f campos"
   - "head sin opciones muestra 10 líneas."
@@ -149,6 +156,7 @@ solution: "sort -t ',' -k 2 datos.csv"
 explanation: |
   -t indica el separador de campos y -k el campo por el que se ordena.
 time_limit_sec: 75
+lesson_time_limit_sec: 999999
 hints:
   - "sort -t separador -k campo"
 ---
@@ -168,6 +176,7 @@ solution: "cut -d ',' -f 5 datos.csv | sort -n -r | head -n 5"
 explanation: |
   Sin -n, sort compara texto y «99» quedaría después de «600». -r invierte el orden.
 time_limit_sec: 120
+lesson_time_limit_sec: 999999
 hints:
   - "Extrae la columna con cut."
   - "sort -n ordena como números y -r al revés."
@@ -188,6 +197,7 @@ solution: "grep Verdadero datos.csv | wc -l"
 explanation: |
   La columna legendario vale Verdadero o Falso. grep -c Verdadero datos.csv también funciona.
 time_limit_sec: 75
+lesson_time_limit_sec: 999999
 hints:
   - "Mira el encabezado: ¿qué valor tiene la columna legendario?"
 ---
@@ -207,6 +217,7 @@ solution: "tail -n +2 datos.csv | wc -l"
 explanation: |
   tail -n +2 empieza en la línea 2, es decir, se salta el encabezado.
 time_limit_sec: 90
+lesson_time_limit_sec: 999999
 hints:
   - "wc -l cuenta también el encabezado."
   - "tail -n +2 muestra desde la segunda línea."
@@ -227,6 +238,7 @@ solution: "cut -d ',' -f 2,12 datos.csv"
 explanation: |
   La generación es el campo 12; cuéntalos en el encabezado.
 time_limit_sec: 75
+lesson_time_limit_sec: 999999
 hints:
   - "Busca en el encabezado en qué posición está generacion."
 ---
@@ -246,6 +258,7 @@ solution: "tail -n +2 datos.csv | cut -d ',' -f 3 | sort | uniq -c | sort -n -r 
 explanation: |
   uniq solo junta líneas iguales consecutivas: por eso hay que ordenar antes. Luego se ordena por la cuenta.
 time_limit_sec: 150
+lesson_time_limit_sec: 999999
 hints:
   - "Extrae la columna 3 y ordénala."
   - "uniq -c cuenta repeticiones."
@@ -267,6 +280,7 @@ solution: "tail -n +2 datos.csv | cut -d ',' -f 3 | sort | uniq"
 explanation: |
   sort -u hace lo mismo que sort | uniq.
 time_limit_sec: 120
+lesson_time_limit_sec: 999999
 hints:
   - "Recuerda saltarte el encabezado."
   - "uniq necesita la entrada ordenada."

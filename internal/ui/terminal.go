@@ -107,7 +107,7 @@ func newPractice(ctx exerciseCtx, ex content.Exercise) *practiceScreen {
 	return p
 }
 
-func (p *practiceScreen) limit() time.Duration { return time.Duration(p.ex.TimeLimitSec) * time.Second }
+func (p *practiceScreen) limit() time.Duration { return p.ex.TimeLimit(p.ctx.lessons) }
 
 func (p *practiceScreen) Init() tea.Cmd { return p.prepare() }
 

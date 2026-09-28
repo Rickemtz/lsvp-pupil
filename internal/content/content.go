@@ -12,6 +12,7 @@ import (
 	"slices"
 	"sort"
 	"strings"
+	"time"
 
 	"gopkg.in/yaml.v3"
 )
@@ -69,14 +70,16 @@ func (m Module) MinExercises() int {
 
 // Exercise es un ejercicio de cualquier tipo (quiz o practice).
 type Exercise struct {
-	ID           string   `yaml:"id"`
-	Module       int      `yaml:"module"`
-	Kind         string   `yaml:"kind"`
-	Difficulty   int      `yaml:"difficulty"`
-	Source       string   `yaml:"source"`
-	Explanation  string   `yaml:"explanation"`
-	TimeLimitSec int      `yaml:"time_limit_sec"`
-	Hints        []string `yaml:"hints"`
+	ID           string `yaml:"id"`
+	Module       int    `yaml:"module"`
+	Kind         string `yaml:"kind"`
+	Difficulty   int    `yaml:"difficulty"`
+	Source       string `yaml:"source"`
+	Explanation  string `yaml:"explanation"`
+	TimeLimitSec int    `yaml:"time_limit_sec"`
+	// LessonTimeLimitSec sustituye a TimeLimitSec solo en Lecciones; 0: usa TimeLimitSec.
+	LessonTimeLimitSec int      `yaml:"lesson_time_limit_sec"`
+	Hints              []string `yaml:"hints"`
 
 	// Quiz.
 	Format   string     `yaml:"format"`
@@ -169,6 +172,15 @@ type Check struct {
 	// process: nombre del programa lanzado en segundo plano por el setup, y la señal esperada (opcional)
 	Process string `yaml:"process"`
 	Signal  string `yaml:"signal"`
+}
+
+// TimeLimit es el tiempo para resolver el ejercicio; en Lecciones manda lesson_time_limit_sec si existe.
+func (ex Exercise) TimeLimit(lessons bool) time.Duration {
+	sec := ex.TimeLimitSec
+	if lessons && ex.LessonTimeLimitSec > 0 {
+		sec = ex.LessonTimeLimitSec
+	}
+	return time.Duration(sec) * time.Second
 }
 
 // NeedsProcesses dice si algún check revisa procesos lanzados por el setup.
@@ -394,6 +406,9 @@ func ValidateExercise(ex Exercise) []error {
 	}
 	if ex.TimeLimitSec <= 0 {
 		fail("time_limit_sec debe ser mayor que 0")
+	}
+	if ex.LessonTimeLimitSec < 0 {
+		fail("lesson_time_limit_sec no puede ser negativo")
 	}
 	switch ex.Kind {
 	case KindQuiz:

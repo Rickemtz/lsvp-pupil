@@ -18,6 +18,7 @@ explanation: |
   La primera columna de «ls -l» muestra el tipo y los permisos: una d al inicio
   indica un directorio.
 time_limit_sec: 45
+lesson_time_limit_sec: 999999
 hints:
   - "La opción es la letra ele, de «long»."
 ---
@@ -38,6 +39,7 @@ explanation: |
   Sin -p, mkdir se queja de que proyecto no existe. Con -p crea también los
   directorios intermedios.
 time_limit_sec: 60
+lesson_time_limit_sec: 999999
 hints:
   - "mkdir necesita una opción para crear los directorios intermedios."
   - "La opción es -p (de «parents»)."
@@ -58,6 +60,7 @@ checks:
     path: taller/proyecto/linux/basico
 solution: "cd linux/basico"
 time_limit_sec: 45
+lesson_time_limit_sec: 999999
 hints:
   - "cd acepta una ruta con varios niveles."
 ---
@@ -76,6 +79,7 @@ checks:
     path: taller/proyecto
 solution: "cd ../.."
 time_limit_sec: 45
+lesson_time_limit_sec: 999999
 hints:
   - ".. sube un nivel. ¿Y para subir dos?"
 ---
@@ -94,5 +98,6 @@ checks:
     is_dir: [taller/dir1, taller/dir2, taller/dir3, taller/dir4]
 solution: "mkdir dir1 dir2 dir3 dir4"
 time_limit_sec: 60
+lesson_time_limit_sec: 999999
 hints:
   - "mkdir acepta varios nombres separados por espacios."

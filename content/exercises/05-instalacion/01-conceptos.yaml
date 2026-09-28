@@ -17,6 +17,7 @@ explanation: |
   Compilar da control total: eliges opciones, versiones y optimizaciones. A
   cambio, pide tiempo y conocimientos.
 time_limit_sec: 20
+lesson_time_limit_sec: 999999
 hints:
   - "Piensa en «control»."
 ---
@@ -39,6 +40,7 @@ explanation: |
   Sin un sistema de paquetes, tú llevas el control de versiones, dependencias y
   actualizaciones. Justo para eso surgieron los paquetes.
 time_limit_sec: 25
+lesson_time_limit_sec: 999999
 hints:
   - "¿Quién lleva la cuenta de lo instalado?"
 ---
@@ -59,6 +61,7 @@ answer: "Una colección de compiladores que convierte código fuente en programa
 explanation: |
   GCC (GNU Compiler Collection) compila C, C++, Fortran, Go y otros lenguajes.
 time_limit_sec: 20
+lesson_time_limit_sec: 999999
 hints:
   - "La última C es de «collection»; la segunda, de «compiler»."
 ---
@@ -80,6 +83,7 @@ explanation: |
   En un proyecto grande hay muchos archivos que compilar en orden. make lee el
   Makefile y hace solo lo necesario.
 time_limit_sec: 25
+lesson_time_limit_sec: 999999
 hints:
   - "Su archivo de reglas lleva su nombre."
 ---
@@ -101,6 +105,7 @@ explanation: |
   configure (generado con Autoconf) detecta compilador, bibliotecas y sistema, y
   escribe un Makefile a la medida. El orden típico es ./configure, make y make install.
 time_limit_sec: 25
+lesson_time_limit_sec: 999999
 hints:
   - "Va antes de make."
 ---
@@ -121,6 +126,7 @@ answer: "Los programas ya compilados, su configuración, scripts de instalación
 explanation: |
   Un paquete trae todo listo para instalar, e indica qué otros paquetes necesita.
 time_limit_sec: 25
+lesson_time_limit_sec: 999999
 hints:
   - "Ya viene compilado."
 ---
@@ -138,6 +144,7 @@ explanation: |
   La familia Debian usa .deb (con dpkg y apt); la familia Red Hat usa .rpm (con
   rpm y dnf).
 time_limit_sec: 20
+lesson_time_limit_sec: 999999
 hints:
   - "Las tres primeras letras de Debian."
 ---
@@ -154,6 +161,7 @@ answer: "Red Hat (Fedora, RHEL, Rocky)"
 explanation: |
   RPM viene de «Red Hat Package Manager».
 time_limit_sec: 20
+lesson_time_limit_sec: 999999
 hints:
   - "La R es de la empresa que lo creó."
 ---
@@ -175,6 +183,7 @@ explanation: |
   Los desarrolladores de la distribución mantienen los repositorios para asegurar
   compatibilidad y seguridad. apt, dnf y pacman descargan de ahí.
 time_limit_sec: 25
+lesson_time_limit_sec: 999999
 hints:
   - "Es un almacén."
 ---
@@ -197,6 +206,7 @@ explanation: |
   dpkg (bajo nivel) instala un .deb que ya tienes. apt (alto nivel) se conecta a
   los repositorios y resuelve las dependencias por ti.
 time_limit_sec: 30
+lesson_time_limit_sec: 999999
 hints:
   - "Alto nivel = más automático."
 ---
@@ -213,6 +223,7 @@ explanation: |
   apt update solo actualiza la lista de paquetes disponibles. Lo que instala las
   versiones nuevas es apt upgrade; por eso suelen ir juntos: apt update && apt upgrade.
 time_limit_sec: 25
+lesson_time_limit_sec: 999999
 hints:
   - "Uno actualiza la lista; el otro, los programas."
 ---
@@ -230,6 +241,7 @@ explanation: |
   apt es de Debian y Ubuntu, dnf de Fedora y Red Hat, y pacman de Arch (y
   derivadas como Manjaro o CachyOS).
 time_limit_sec: 20
+lesson_time_limit_sec: 999999
 hints:
   - "La que no es Debian ni Red Hat."
 ---
@@ -247,5 +259,6 @@ explanation: |
   Instalar escribe en directorios del sistema como /usr, que solo root puede
   modificar. Buscar o ver información de un paquete no requiere sudo.
 time_limit_sec: 25
+lesson_time_limit_sec: 999999
 hints:
   - "¿Quién puede escribir en /usr?"

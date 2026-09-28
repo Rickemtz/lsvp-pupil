@@ -14,6 +14,7 @@ require_shebang: true
 solution_file: solutions/hola.sh
 explanation: "La primera línea, #!/bin/bash, indica qué programa ejecuta el script. Las líneas que empiezan con # son comentarios."
 time_limit_sec: 300
+lesson_time_limit_sec: 999999
 hints:
   - "La primera línea es #!/bin/bash"
   - "echo muestra texto."
@@ -33,6 +34,7 @@ require_shebang: true
 solution_file: solutions/donde.sh
 explanation: "$(comando) ejecuta el comando y pone su salida en ese lugar; así se guarda en una variable."
 time_limit_sec: 300
+lesson_time_limit_sec: 999999
 hints:
   - "variable=$(pwd)"
   - "Para usar el valor: $variable"
@@ -55,6 +57,7 @@ require_shebang: true
 solution_file: solutions/saludo.sh
 explanation: "read -p \"Pregunta: \" variable muestra la pregunta y guarda la respuesta en la misma línea."
 time_limit_sec: 420
+lesson_time_limit_sec: 999999
 hints:
   - "read -p \"Nombre: \" nombre"
   - "Usa las variables dentro de las comillas del echo."
@@ -75,6 +78,7 @@ require_shebang: true
 solution_file: solutions/info_sistema.sh
 explanation: "uname -n (o hostname) da el nombre del equipo, whoami el usuario, date la fecha y pwd el directorio."
 time_limit_sec: 420
+lesson_time_limit_sec: 999999
 hints:
   - "Los comandos son: uname -n, whoami, date y pwd."
   - "echo \"Usuario: $(whoami)\""
@@ -97,6 +101,7 @@ require_shebang: true
 solution_file: solutions/argumentos.sh
 explanation: "$0 es el nombre del script, $1 y $2 los primeros argumentos, $# cuántos hay y $@ todos."
 time_limit_sec: 420
+lesson_time_limit_sec: 999999
 hints:
   - "Revisa la tabla de variables especiales: $0, $1, $#, $@."
 ---
@@ -120,6 +125,7 @@ require_shebang: true
 solution_file: solutions/comparar.sh
 explanation: "Para comparar números en [ ] se usan -gt, -lt, -eq... Deja espacios alrededor de los corchetes."
 time_limit_sec: 480
+lesson_time_limit_sec: 999999
 hints:
   - "if [ \"$1\" -gt 10 ]; then ... elif ...; else ...; fi"
   - "-gt: mayor que, -lt: menor que."
@@ -142,6 +148,7 @@ require_shebang: true
 solution_file: solutions/archivo.sh
 explanation: "[ -f archivo ] es verdadero si el archivo existe y es un archivo regular; [ -d dir ] hace lo mismo con directorios."
 time_limit_sec: 480
+lesson_time_limit_sec: 999999
 hints:
   - "if [ -f \"$1\" ]; then ..."
 ---
@@ -163,6 +170,7 @@ require_shebang: true
 solution_file: solutions/cuenta_atras.sh
 explanation: "(( )) hace aritmética: ((n--)) resta uno a n. Sin actualizar la variable, el while nunca terminaría."
 time_limit_sec: 480
+lesson_time_limit_sec: 999999
 hints:
   - "while [ \"$n\" -ge 0 ]; do ... done"
   - "((n--)) resta uno."
@@ -185,6 +193,7 @@ require_shebang: true
 solution_file: solutions/tabla.sh
 explanation: "for recorre una lista; $(( )) calcula y devuelve el resultado."
 time_limit_sec: 480
+lesson_time_limit_sec: 999999
 hints:
   - "for i in 1 2 3 4 5 6 7 8 9 10; do ... done"
   - "$(($1 * i)) multiplica."
@@ -207,6 +216,7 @@ require_shebang: true
 solution_file: solutions/suma.sh
 explanation: "for ((i = 1; i <= N; i++)) se parece al for de C: inicio, condición e incremento."
 time_limit_sec: 480
+lesson_time_limit_sec: 999999
 hints:
   - "for ((i = 1; i <= $1; i++)); do ... done"
   - "((suma += i)) acumula."
@@ -229,6 +239,7 @@ require_shebang: true
 solution_file: solutions/codigo.sh
 explanation: "$? guarda el código de salida del último comando: 0 es éxito y otro número indica un error (ls usa 2 cuando no encuentra el archivo)."
 time_limit_sec: 420
+lesson_time_limit_sec: 999999
 hints:
   - "Manda la salida y los errores de ls a /dev/null."
   - "echo \"Código: $?\" justo después de ls."
@@ -252,6 +263,7 @@ require_shebang: true
 solution_file: solutions/mostrar.sh
 explanation: "2>> agrega los errores al final de error.log (sin borrar los anteriores), y || ejecuta lo que sigue solo si el comando anterior falló."
 time_limit_sec: 480
+lesson_time_limit_sec: 999999
 hints:
   - "cat \"$1\" 2>> error.log"
   - "comando || echo \"...\""
@@ -276,6 +288,7 @@ require_shebang: true
 solution_file: solutions/contar_lineas.sh
 explanation: "wc -l < archivo da solo el número. > reemplaza el contenido de salida.txt; con >> los números se irían acumulando. exit 1 termina el script con código 1, que indica un error."
 time_limit_sec: 480
+lesson_time_limit_sec: 999999
 hints:
   - "if [ -f \"$1\" ]; then ... else ... fi"
   - "wc -l < \"$1\" > salida.txt"
@@ -300,6 +313,7 @@ require_shebang: true
 solution_file: solutions/validar_args.sh
 explanation: "$# dice cuántos argumentos llegaron. Terminar con exit 1 permite que otros comandos sepan que algo salió mal, por ejemplo con && o ||."
 time_limit_sec: 420
+lesson_time_limit_sec: 999999
 hints:
   - "if [ $# -eq 0 ]; then ... fi"
   - "exit 1 termina el script con ese código."

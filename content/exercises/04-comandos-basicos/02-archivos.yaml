@@ -14,6 +14,7 @@ checks:
     is_file: [taller/dir1/file.txt, taller/dir1/documento]
 solution: "touch file.txt documento"
 time_limit_sec: 60
+lesson_time_limit_sec: 999999
 hints:
   - "touch crea archivos vacíos y acepta varios nombres."
 ---
@@ -35,6 +36,7 @@ checks:
       taller/dir1/file2.txt: "primera versión\n"
 solution: "cp file.txt file2.txt"
 time_limit_sec: 45
+lesson_time_limit_sec: 999999
 hints:
   - "cp origen destino"
 ---
@@ -57,6 +59,7 @@ solution: "cp -r proyecto dir2"
 explanation: |
   Para copiar un directorio, cp necesita -r (recursivo); sin ella se niega.
 time_limit_sec: 60
+lesson_time_limit_sec: 999999
 hints:
   - "Copiar un directorio requiere una opción de cp."
   - "La opción es -r (recursivo)."
@@ -79,6 +82,7 @@ checks:
     absent: [taller/dir1/file.txt]
 solution: "mv file.txt ../dir3"
 time_limit_sec: 60
+lesson_time_limit_sec: 999999
 hints:
   - "mv origen destino"
   - "El directorio padre se escribe .."
@@ -102,6 +106,7 @@ solution: "mv documento ejercicio"
 explanation: |
   Renombrar es mover un archivo a un nombre nuevo en el mismo directorio.
 time_limit_sec: 45
+lesson_time_limit_sec: 999999
 hints:
   - "No hay un comando «renombrar»: se usa el mismo que para mover."
 ---
@@ -123,6 +128,7 @@ solution: "rmdir dir4"
 explanation: |
   rmdir solo borra directorios vacíos, así que es una forma segura de limpiar.
 time_limit_sec: 45
+lesson_time_limit_sec: 999999
 hints:
   - "Hay un comando especial para borrar directorios vacíos."
 ---
@@ -144,6 +150,7 @@ checks:
     exists: [taller/dir1/file.txt]
 solution: "rm dir1/file2.txt"
 time_limit_sec: 45
+lesson_time_limit_sec: 999999
 hints:
   - "rm acepta rutas relativas."
 ---
@@ -166,6 +173,7 @@ explanation: |
   rmdir no sirve porque proyecto no está vacío. rm -r borra de manera
   recursiva, y no pide confirmación: úsalo con cuidado.
 time_limit_sec: 60
+lesson_time_limit_sec: 999999
 hints:
   - "El directorio no está vacío, así que rmdir no alcanza."
   - "rm con la opción recursiva."

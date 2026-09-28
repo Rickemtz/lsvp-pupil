@@ -15,6 +15,7 @@ solution: "cat Dewey.txt frases.txt"
 explanation: |
   cat viene de «concatenate»: acepta varios archivos y los muestra uno tras otro.
 time_limit_sec: 45
+lesson_time_limit_sec: 999999
 hints:
   - "cat acepta varios archivos."
 ---
@@ -46,6 +47,7 @@ explanation: |
   El * es un comodín. Ponlo entre comillas para que lo interprete find y no el
   shell. notas_eje1.txt no aparece porque no empieza con eje.
 time_limit_sec: 90
+lesson_time_limit_sec: 999999
 hints:
   - "find dónde -name 'patrón'"
   - "El patrón usa * como comodín: 'eje*.txt'"

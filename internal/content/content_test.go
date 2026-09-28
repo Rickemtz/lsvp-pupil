@@ -4,6 +4,7 @@ import (
 	"strings"
 	"testing"
 	"testing/fstest"
+	"time"
 
 	files "lsvp-pupil/content"
 )
@@ -267,5 +268,19 @@ func TestProcessCheckValidation(t *testing.T) {
 		if len(ValidateExercise(ex)) == 0 {
 			t.Errorf("%s: debería ser inválido", name)
 		}
+	}
+}
+
+func TestTimeLimitLessons(t *testing.T) {
+	ex := Exercise{TimeLimitSec: 25, LessonTimeLimitSec: 600}
+	if got := ex.TimeLimit(false); got != 25*time.Second {
+		t.Errorf("fuera de Lecciones = %v, quiero 25s", got)
+	}
+	if got := ex.TimeLimit(true); got != 600*time.Second {
+		t.Errorf("en Lecciones = %v, quiero 600s", got)
+	}
+	ex.LessonTimeLimitSec = 0
+	if got := ex.TimeLimit(true); got != 25*time.Second {
+		t.Errorf("Lecciones sin lesson_time_limit_sec = %v, quiero 25s", got)
 	}
 }

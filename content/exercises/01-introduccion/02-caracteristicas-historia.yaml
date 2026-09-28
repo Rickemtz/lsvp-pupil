@@ -13,6 +13,7 @@ explanation: |
   Ser de código abierto permite aprender del código fuente, adaptarlo y
   someterlo al escrutinio de miles de personas.
 time_limit_sec: 20
+lesson_time_limit_sec: 999999
 hints:
   - "¿Qué significa «abierto» cuando hablamos de código?"
 ---
@@ -34,6 +35,7 @@ explanation: |
   El kernel Linux corre en arquitecturas muy distintas, desde servidores y
   supercomputadoras hasta teléfonos y placas pequeñas.
 time_limit_sec: 25
+lesson_time_limit_sec: 999999
 hints:
   - "«Plataforma» aquí se refiere al tipo de equipo."
 ---
@@ -51,6 +53,7 @@ explanation: |
   GNU/Linux domina el cómputo científico y de alto rendimiento, y tiene una
   relación estrecha con universidades y laboratorios como el LSVP.
 time_limit_sec: 20
+lesson_time_limit_sec: 999999
 hints:
   - "Recuerda en qué laboratorio nació este curso."
 ---
@@ -68,6 +71,7 @@ explanation: |
   Orden: Multics (1964), Unix (1969), GNU (1984), Linux (1991) y la
   combinación GNU/Linux (1992).
 time_limit_sec: 20
+lesson_time_limit_sec: 999999
 hints:
   - "Unix se inspiró en él."
 ---
@@ -89,6 +93,7 @@ explanation: |
   Ken Thompson y Dennis Ritchie crearon Unix en los Laboratorios Bell, después
   de participar en el proyecto Multics.
 time_limit_sec: 25
+lesson_time_limit_sec: 999999
 hints:
   - "Era un laboratorio de una compañía telefónica."
 ---
@@ -107,6 +112,7 @@ explanation: |
   El proyecto GNU («GNU's Not Unix») creó el compilador, el shell bash y muchas
   de las herramientas que usarás en la terminal.
 time_limit_sec: 20
+lesson_time_limit_sec: 999999
 hints:
   - "Su nombre es un acrónimo recursivo que niega ser Unix."
 ---
@@ -124,6 +130,7 @@ explanation: |
   Linus Torvalds publicó la primera versión de Linux en 1991 como un proyecto
   personal; el nombre viene de su propio nombre.
 time_limit_sec: 30
+lesson_time_limit_sec: 999999
 hints:
   - "El kernel lleva una variación de su nombre."
 ---
@@ -145,6 +152,7 @@ explanation: |
   A GNU le faltaba un kernel terminado y Linux era solo un kernel. Juntos, desde
   1992, forman un sistema operativo completo y libre.
 time_limit_sec: 25
+lesson_time_limit_sec: 999999
 hints:
   - "Cada nombre aporta una parte distinta del sistema."
 ---
@@ -167,5 +175,6 @@ explanation: |
   Además del uso diario, GNU/Linux es la base para administrar centros de
   datos, clusters de supercómputo e infraestructura en la nube.
 time_limit_sec: 20
+lesson_time_limit_sec: 999999
 hints:
   - "Busca la opción que harías en un laboratorio como el LSVP."

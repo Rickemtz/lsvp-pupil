@@ -17,6 +17,7 @@ explanation: |
   SSH (Secure Shell) permite operar una computadora remota a través de una red
   insegura, como internet, sin que otros puedan leer lo que viaja.
 time_limit_sec: 20
+lesson_time_limit_sec: 999999
 hints:
   - "La S de SSH significa «secure»."
 ---
@@ -39,6 +40,7 @@ explanation: |
   Cualquiera que interceptara el tráfico podía leer las contraseñas. SSH surgió
   para resolver justamente ese problema de las redes inseguras.
 time_limit_sec: 25
+lesson_time_limit_sec: 999999
 hints:
   - "Piensa en alguien espiando la red."
 ---
@@ -63,6 +65,7 @@ explanation: |
   (por ejemplo, copiar archivos o hacer túneles). No acelera la red ni da más
   permisos de los que ya tienes.
 time_limit_sec: 30
+lesson_time_limit_sec: 999999
 hints:
   - "Dos opciones hablan de seguridad; las otras dos, de cosas que SSH no hace."
 ---
@@ -85,6 +88,7 @@ explanation: |
   El fingerprint es un resumen de la llave del servidor. Si lo comparas con el
   que te dio quien administra el servidor, sabes que hablas con la máquina correcta.
 time_limit_sec: 25
+lesson_time_limit_sec: 999999
 hints:
   - "Una huella identifica a quien la deja."
 ---
@@ -102,6 +106,7 @@ explanation: |
   Un cambio inesperado puede significar que alguien se hace pasar por el
   servidor. Antes de aceptar, pregunta a quien lo administra si cambió la llave.
 time_limit_sec: 25
+lesson_time_limit_sec: 999999
 hints:
   - "¿Qué pasaría si fuera un impostor?"
 ---
@@ -120,6 +125,7 @@ explanation: |
   La pública se instala en los servidores; la privada se queda solo contigo y
   demuestra que eres tú.
 time_limit_sec: 20
+lesson_time_limit_sec: 999999
 hints:
   - "Su nombre lo dice."
 ---
@@ -135,6 +141,7 @@ answer: "verdadero"
 explanation: |
   Quien tenga tu llave privada puede entrar a tus servidores como si fueras tú.
 time_limit_sec: 20
+lesson_time_limit_sec: 999999
 hints:
   - "Privada."
 ---
@@ -156,6 +163,7 @@ answer: "Datos cifrados que no puede leer"
 explanation: |
   SSH cifra toda la comunicación: contraseñas, comandos y resultados.
 time_limit_sec: 20
+lesson_time_limit_sec: 999999
 hints:
   - "¿Qué hace el cifrado con los datos?"
 ---
@@ -174,6 +182,7 @@ explanation: |
   PuTTY es un cliente SSH gráfico muy usado en Windows. OpenSSH es el cliente y
   servidor de línea de comandos que viene en Linux, macOS y en Windows recientes.
 time_limit_sec: 25
+lesson_time_limit_sec: 999999
 hints:
   - "Tiene nombre de masilla en inglés."
 ---
@@ -195,6 +204,7 @@ explanation: |
   La forma es ssh USUARIO@DIRECCIÓN: antes de la @ va el usuario y después, la
   dirección del servidor (nombre o IP).
 time_limit_sec: 20
+lesson_time_limit_sec: 999999
 hints:
   - "Lo que va antes de la @ es quién entra."
 ---
@@ -212,6 +222,7 @@ accepted: ["logout"]
 explanation: |
   exit (o logout, o Ctrl-D) termina la shell remota y cierra la conexión.
 time_limit_sec: 25
+lesson_time_limit_sec: 999999
 hints:
   - "Es el mismo comando con el que cierras cualquier shell."
 ---
@@ -229,5 +240,6 @@ explanation: |
   El puerto 22 es el predeterminado. Si un servidor usa otro, se indica con la
   opción -p, por ejemplo ssh -p 2222 usuario@servidor.
 time_limit_sec: 20
+lesson_time_limit_sec: 999999
 hints:
   - "Es un número de dos cifras iguales."

@@ -17,6 +17,7 @@ checks:
       taller2/dia3/redireccionYPipes/red_pipes/poesia_redireccionada: "En la terminal oscura parpadea un cursor"
 solution: "cat poesia_artificial > poesia_redireccionada"
 time_limit_sec: 60
+lesson_time_limit_sec: 999999
 hints:
   - "cat muestra el contenido; > lo manda a un archivo."
 ---
@@ -38,6 +39,7 @@ solution: "ls noexiste 2> error.txt"
 explanation: |
   Con > a secas, error.txt quedaría vacío: el mensaje va por STDERR, no por STDOUT.
 time_limit_sec: 60
+lesson_time_limit_sec: 999999
 hints:
   - "El error sale por el canal 2."
 ---
@@ -63,6 +65,7 @@ solution: 'echo "Esto es una copia de red_pipes/poesia_artificial" >> poesia_red
 explanation: |
   >> escribe al final. Con > se habría perdido el poema.
 time_limit_sec: 75
+lesson_time_limit_sec: 999999
 hints:
   - "Para agregar al final, el operador es doble."
 ---
@@ -84,6 +87,7 @@ explanation: |
   Fíjate que lista.txt aparece dentro de sí misma: la shell crea el archivo antes
   de ejecutar ls.
 time_limit_sec: 45
+lesson_time_limit_sec: 999999
 hints:
   - "ls y el operador >"
 ---
@@ -106,6 +110,7 @@ explanation: |
   Con «wc -l poesia_artificial», wc conoce el nombre y lo imprime. Con <, la
   shell le pasa el contenido por STDIN y wc no sabe de qué archivo viene.
 time_limit_sec: 60
+lesson_time_limit_sec: 999999
 hints:
   - "comando < archivo"
 ---
@@ -129,6 +134,7 @@ checks:
       taller2/dia3/redireccionYPipes/red_pipes/errores.txt: "fantasma"
 solution: "ls fantasma 2>> errores.txt"
 time_limit_sec: 60
+lesson_time_limit_sec: 999999
 hints:
   - "Errores (2) y agregar al final (>>)."
 ---
@@ -149,6 +155,7 @@ checks:
       taller2/dia3/redireccionYPipes/red_pipes/error.txt: "noexiste"
 solution: "ls poesia_artificial noexiste > salida.txt 2> error.txt"
 time_limit_sec: 75
+lesson_time_limit_sec: 999999
 hints:
   - "Puedes usar > y 2> en el mismo comando."
 ---
@@ -170,6 +177,7 @@ solution: "wc -l < datos.csv > conteo.txt"
 explanation: |
   Se pueden combinar < y > en el mismo comando.
 time_limit_sec: 75
+lesson_time_limit_sec: 999999
 hints:
   - "Recuerda el truco de < para que wc no imprima el nombre."
   - "Luego manda el resultado a conteo.txt con >."
@@ -191,6 +199,7 @@ solution: "cat /proc/cpuinfo | head -n 5"
 explanation: |
   El pipe (|) conecta la salida estándar de cat con la entrada estándar de head.
 time_limit_sec: 60
+lesson_time_limit_sec: 999999
 hints:
   - "comando1 | comando2"
   - "head -n 5 muestra 5 líneas."
@@ -212,6 +221,7 @@ explanation: |
   Cuando ls escribe a un pipe pone un nombre por línea, así que wc -l cuenta
   archivos.
 time_limit_sec: 60
+lesson_time_limit_sec: 999999
 hints:
   - "wc -l cuenta líneas."
 ---
@@ -229,5 +239,6 @@ checks:
     mode: same_as_solution
 solution: "tail -n 3 poesia_artificial | sort"
 time_limit_sec: 75
+lesson_time_limit_sec: 999999
 hints:
   - "tail saca las últimas líneas; sort las ordena."

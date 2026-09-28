@@ -13,6 +13,7 @@ checks:
     path: taller/dia-1
 solution: "cd dia-1"
 time_limit_sec: 45
+lesson_time_limit_sec: 999999
 hints:
   - "cd nombre_del_directorio"
 ---
@@ -30,6 +31,7 @@ checks:
     path: taller
 solution: "cd .."
 time_limit_sec: 45
+lesson_time_limit_sec: 999999
 hints:
   - "Dos puntos significan «un nivel arriba»."
 ---
@@ -49,6 +51,7 @@ solution: "cd"
 explanation: |
   cd sin argumentos, «cd ~» y «cd $HOME» te llevan al home.
 time_limit_sec: 45
+lesson_time_limit_sec: 999999
 hints:
   - "cd sin argumentos, o con el símbolo ~"
 ---
@@ -66,6 +69,7 @@ checks:
     mode: same_as_solution
 solution: "pwd"
 time_limit_sec: 45
+lesson_time_limit_sec: 999999
 hints:
   - "El comando se llama así por «print working directory»."
 ---
@@ -84,6 +88,7 @@ checks:
     mode: same_as_solution
 solution: "cat ../ejemplo.txt"
 time_limit_sec: 60
+lesson_time_limit_sec: 999999
 hints:
   - "cat muestra el contenido de un archivo."
   - "El directorio padre se escribe .."
@@ -106,5 +111,6 @@ solution: "ls -a"
 explanation: |
   Con -a también aparecen . y .., las dos entradas que tiene todo directorio.
 time_limit_sec: 60
+lesson_time_limit_sec: 999999
 hints:
   - "ls tiene una opción para mostrar «all» (todo)."
